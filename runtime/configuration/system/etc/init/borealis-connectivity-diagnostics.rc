@@ -1,0 +1,23 @@
+service borealis-connectivity-diagnostics /system/bin/sh /system/etc/borealis-connectivity-diagnostics.sh
+    class late_start
+    user root
+    group root system shell log inet net_admin bluetooth
+    seclabel u:r:su:s0
+    disabled
+    oneshot
+
+on property:sys.boot_completed=1 && property:ro.debuggable=1
+    start borealis-connectivity-diagnostics
+
+# Restore storage propagation skipped by imported SetupMountNamespaces stub.
+# Match /mnt setup in AOSP init; keep application namespaces and FUSE isolation.
+on init
+    mount none /mnt /mnt shared rec
+    mkdir /mnt/installer 0755 root root
+    mkdir /mnt/androidwritable 0755 root root
+    mount none /mnt/user /mnt/installer bind rec
+    mount none /mnt/user /mnt/androidwritable bind rec
+    mount none /mnt/installer /mnt/installer slave
+    mount none /mnt/androidwritable /mnt/androidwritable slave
+    mount none /mnt/installer /mnt/installer shared
+    mount none /mnt/androidwritable /mnt/androidwritable shared

@@ -1,0 +1,22 @@
+diff --git a/private/file_contexts b/private/file_contexts
+index 56977a1..d28a6bd 100644
+--- a/private/file_contexts
++++ b/private/file_contexts
+@@ -1001,3 +1001,5 @@
+ #############################
+ # For casefolding_remover
+ /system/bin/casefolding_remover u:object_r:casefolding_remover_exec:s0
++
++/data/misc/borealis-graphics(/.*)? u:object_r:borealis_graphics_data_file:s0
+diff --git a/private/property_contexts b/private/property_contexts
+index 0bd43ef..dcb18de 100644
+--- a/private/property_contexts
++++ b/private/property_contexts
+@@ -1957,3 +1957,7 @@ service.aiseal. u:object_r:aiseal_prop:s0
+ 
+ # Wear dynamic thermal profile property
+ thermal.dynamic_config_profile    u:object_r:thermal_profile_prop:s0 exact enum default setup kids_setup kids
++
++# Borealis graphics controls are transient.
++debug.borealis.graphics.status u:object_r:borealis_graphics_status_prop:s0 exact string
++debug.borealis.graphics. u:object_r:borealis_graphics_config_prop:s0 prefix

@@ -1,0 +1,104 @@
+[
+  {
+    "path": "bootable/deprecated-ota",
+    "base_commit": "d9145a6f8e393e5925d43c402da98da5dd6dff76",
+    "patch": "patches/checkouts/bootable__deprecated-ota.patch",
+    "reverse_check_against_current_tree": true
+  },
+  {
+    "path": "build/blueprint",
+    "base_commit": "7f2058de8155b05ea3c3f8317d33bfe732cacf8b",
+    "patch": "patches/checkouts/build__blueprint.patch",
+    "reverse_check_against_current_tree": true
+  },
+  {
+    "path": "build/make",
+    "base_commit": "5ce6f787337d0223710bf7d4a16dbe6d2a35f777",
+    "patch": "patches/checkouts/build__make.patch",
+    "reverse_check_against_current_tree": true
+  },
+  {
+    "path": "build/soong",
+    "base_commit": "6722dd8833db7482df1a2543ca3fcf67ddf0f7b1",
+    "patch": "patches/checkouts/build__soong.patch",
+    "reverse_check_against_current_tree": true
+  },
+  {
+    "path": "device/samsung/a30",
+    "base_commit": "437bc6a96533ff686db2f978c91a22c804d87cf5",
+    "patch": "patches/checkouts/device__samsung__a30.patch",
+    "reverse_check_against_current_tree": true
+  },
+  {
+    "path": "device/samsung/exynos7885-common",
+    "base_commit": "59f063fcfbe14274069bcd4c3546a86581cad4bf",
+    "patch": "patches/checkouts/device__samsung__exynos7885-common.patch",
+    "reverse_check_against_current_tree": true
+  },
+  {
+    "path": "device/samsung_slsi/sepolicy",
+    "base_commit": "2ad1eaccaf3e4ffbef503c0e08304571b659f242",
+    "patch": "patches/checkouts/device__samsung_slsi__sepolicy.patch",
+    "reverse_check_against_current_tree": true
+  },
+  {
+    "path": "frameworks/base",
+    "base_commit": "94b4c163b7dfe5ce3607f7bb8456f9573f7de57d",
+    "patch": "patches/checkouts/frameworks__base.patch",
+    "reverse_check_against_current_tree": true
+  },
+  {
+    "path": "frameworks/native",
+    "base_commit": "ae266dcb706d083868578cfedce381ef44488a07",
+    "patch": "patches/checkouts/frameworks__native.patch",
+    "reverse_check_against_current_tree": true
+  },
+  {
+    "path": "hardware/google/pixel",
+    "base_commit": "8d371222290203e232f2e2b88cb86eb9d23e98de",
+    "patch": "patches/checkouts/hardware__google__pixel.patch",
+    "reverse_check_against_current_tree": true
+  },
+  {
+    "path": "hardware/lineage/compat",
+    "base_commit": "9e8811a297036c370f7643813a3c733f6e442d86",
+    "patch": "patches/checkouts/hardware__lineage__compat.patch",
+    "reverse_check_against_current_tree": true
+  },
+  {
+    "path": "hardware/samsung",
+    "base_commit": "5d20e3541d147494e074bf710d35b1960a6ed0a2",
+    "patch": "patches/checkouts/hardware__samsung.patch",
+    "reverse_check_against_current_tree": true
+  },
+  {
+    "path": "hardware/samsung_slsi-linaro/exynos",
+    "base_commit": "513a0330522e02d77bd63d391010db7e3026c0ae",
+    "patch": "patches/checkouts/hardware__samsung_slsi-linaro__exynos.patch",
+    "reverse_check_against_current_tree": true
+  },
+  {
+    "path": "packages/apps/Settings",
+    "base_commit": "213829fb67f5e070029e0513a088f31bc8f5c1ed",
+    "patch": "patches/checkouts/packages__apps__Settings.patch",
+    "reverse_check_against_current_tree": true
+  },
+  {
+    "path": "system/core",
+    "base_commit": "545d2487e38192a2ce25040897ced877cf6b4f53",
+    "patch": "patches/checkouts/system__core.patch",
+    "reverse_check_against_current_tree": true
+  },
+  {
+    "path": "system/sepolicy",
+    "base_commit": "e066568e98d86db31a9346d30977f3632fa7073c",
+    "patch": "patches/checkouts/system__sepolicy.patch",
+    "reverse_check_against_current_tree": true
+  },
+  {
+    "path": "vendor/samsung/a30",
+    "base_commit": "c65f50b6a910c4d0ee640ae533b4c8fe4148b4c9",
+    "patch": "patches/checkouts/vendor__samsung__a30.patch",
+    "reverse_check_against_current_tree": true
+  }
+]

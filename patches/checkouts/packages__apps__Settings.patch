@@ -1,0 +1,56 @@
+diff --git a/AndroidManifest.xml b/AndroidManifest.xml
+index c0cd7748..8c842b59 100644
+--- a/AndroidManifest.xml
++++ b/AndroidManifest.xml
+@@ -6278,5 +6278,13 @@
+ 
+         <!-- This is the longest AndroidManifest.xml ever. -->
+ 
++            <activity android:name="Settings$BorealisPerformanceActivity"
++            android:label="@string/borealis_title" android:exported="true">
++            <intent-filter><action android:name="org.borealis.settings.PERFORMANCE" />
++                <category android:name="android.intent.category.DEFAULT" /></intent-filter>
++            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
++                android:value="com.android.settings.borealis.BorealisPerformanceSettings" />
++        </activity>
++
+     </application>
+ </manifest>
+diff --git a/res/xml/top_level_settings.xml b/res/xml/top_level_settings.xml
+index 93f4c9fa..45e7f88d 100644
+--- a/res/xml/top_level_settings.xml
++++ b/res/xml/top_level_settings.xml
+@@ -275,4 +275,10 @@
+             settings:controller="com.android.settings.support.SupportPreferenceController"/>
+     </PreferenceCategory>
+ 
++    <com.android.settings.widget.HomepagePreference
++        android:fragment="com.android.settings.borealis.BorealisPerformanceSettings"
++        android:icon="@drawable/ic_borealis" android:key="top_level_borealis"
++        android:order="-115" android:title="@string/borealis_title"
++        android:summary="@string/borealis_summary" />
++
+ </PreferenceScreen>
+\ No newline at end of file
+diff --git a/src/com/android/settings/Settings.java b/src/com/android/settings/Settings.java
+index 55621585..cb2c5926 100644
+--- a/src/com/android/settings/Settings.java
++++ b/src/com/android/settings/Settings.java
+@@ -818,4 +818,5 @@ public class Settings extends SettingsActivity {
+             }
+         }
+     }
++    public static class BorealisPerformanceActivity extends SettingsActivity {}
+ }
+diff --git a/src/com/android/settings/core/gateway/SettingsGateway.java b/src/com/android/settings/core/gateway/SettingsGateway.java
+index 2a05a306..bb6245a8 100644
+--- a/src/com/android/settings/core/gateway/SettingsGateway.java
++++ b/src/com/android/settings/core/gateway/SettingsGateway.java
+@@ -229,6 +229,7 @@ public class SettingsGateway {
+      * security exception if the fragment it needs to display is not in this list.
+      */
+     public static final String[] ENTRY_FRAGMENTS = {
++        "com.android.settings.borealis.BorealisPerformanceSettings",
+             AdvancedConnectedDeviceDashboardFragment.class.getName(),
+             CreateShortcut.class.getName(),
+             BluetoothPairingDetail.class.getName(),

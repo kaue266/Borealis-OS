@@ -1,0 +1,278 @@
+diff --git a/libs/renderengine/Android.bp b/libs/renderengine/Android.bp
+index ba03b58..ed2bc27 100644
+--- a/libs/renderengine/Android.bp
++++ b/libs/renderengine/Android.bp
+@@ -88,6 +88,8 @@ filegroup {
+         "skia/GLExtensions.cpp",
+         "skia/ShaderCache.cpp",
+         "skia/SkiaRenderEngine.cpp",
++        "skia/BorealisGraphics.cpp",
++        "skia/BorealisGraphicsState.cpp",
+         "skia/RenderDocUtils.cpp",
+         "skia/BoxShadowUtils.cpp",
+         "skia/SkiaGLRenderEngine.cpp",
+diff --git a/libs/renderengine/include/renderengine/DisplaySettings.h b/libs/renderengine/include/renderengine/DisplaySettings.h
+index cc3c900..f890ec3 100644
+--- a/libs/renderengine/include/renderengine/DisplaySettings.h
++++ b/libs/renderengine/include/renderengine/DisplaySettings.h
+@@ -46,6 +46,11 @@ struct DisplaySettings {
+     // logical clip onto this rectangle.
+     Rect physicalDisplay = Rect::INVALID_RECT;
+ 
++    // Screenshots and virtual outputs retain default-false eligibility.
++    bool borealisEligible = false;
++    uint64_t borealisFrameToken = 0;
++    uint64_t borealisConfigToken = 0;
++
+     // Rectangle bounded by the x,y- clipping planes in the logical display, so
+     // that the orthographic projection matrix can be computed. When
+     // constructing this matrix, z-coordinate bound are assumed to be at z=0 and
+@@ -110,7 +115,9 @@ struct DisplaySettings {
+ };
+ 
+ static inline bool operator==(const DisplaySettings& lhs, const DisplaySettings& rhs) {
+-    return lhs.namePlusId == rhs.namePlusId && lhs.physicalDisplay == rhs.physicalDisplay &&
++    return lhs.namePlusId == rhs.namePlusId &&
++            lhs.borealisEligible == rhs.borealisEligible &&
++            lhs.borealisConfigToken == rhs.borealisConfigToken && lhs.physicalDisplay == rhs.physicalDisplay &&
+             lhs.clip == rhs.clip && lhs.maxLuminance == rhs.maxLuminance &&
+             lhs.currentLuminanceNits == rhs.currentLuminanceNits &&
+             lhs.outputDataspace == rhs.outputDataspace &&
+diff --git a/libs/renderengine/skia/SkiaRenderEngine.cpp b/libs/renderengine/skia/SkiaRenderEngine.cpp
+index c4b5c1f..5cd72e6 100644
+--- a/libs/renderengine/skia/SkiaRenderEngine.cpp
++++ b/libs/renderengine/skia/SkiaRenderEngine.cpp
+@@ -17,6 +17,7 @@
+ #define ATRACE_TAG ATRACE_TAG_GRAPHICS
+ 
+ #include "SkiaRenderEngine.h"
++#include <renderengine/BorealisGraphics.h>
+ 
+ #include <string_view>
+ 
+@@ -114,6 +115,15 @@ namespace skia {
+ 
+ namespace {
+ 
++// Keep HDR and extended-range content on the normal composition path.
++static bool isHdrDataspace(ui::Dataspace dataspace) {
++    const auto transfer = dataspace & HAL_DATASPACE_TRANSFER_MASK;
++    const auto range = dataspace & HAL_DATASPACE_RANGE_MASK;
++    return transfer == HAL_DATASPACE_TRANSFER_ST2084 ||
++            transfer == HAL_DATASPACE_TRANSFER_HLG || range == HAL_DATASPACE_RANGE_EXTENDED;
++}
++
++
+ static inline SkRect getSkRect(const android::FloatRect& rect) {
+     return SkRect::MakeLTRB(rect.left, rect.top, rect.right, rect.bottom);
+ }
+@@ -373,6 +383,7 @@ void SkiaRenderEngine::finishRenderingAndAbandonContexts() {
+     // Leftover textures may hold refs to backend-specific Skia contexts, which must be released
+     // before ~SkiaGpuContext is called.
+     mTextureCleanupMgr.setDeferredStatus(false);
++    mBorealisGraphics.reset();
+     mTextureCleanupMgr.cleanup();
+ 
+     // ~SkiaGpuContext must be called before GPU API contexts are torn down.
+@@ -591,13 +602,16 @@ std::shared_ptr<AutoBackendTexture::LocalRef> SkiaRenderEngine::getOrCreateBacke
+ 
+ bool SkiaRenderEngine::canSkipPostRenderCleanup() const {
+     std::lock_guard<std::mutex> lock(mRenderingMutex);
+-    return mTextureCleanupMgr.isEmpty();
++    return mTextureCleanupMgr.isEmpty() &&
++            (!mBorealisGraphics.hasHistory() ||
++             (borealis::enabled() && borealis::compositionEligible()));
+ }
+ 
+ void SkiaRenderEngine::cleanupPostRender() {
+     SFTRACE_CALL();
+     std::lock_guard<std::mutex> lock(mRenderingMutex);
+     mTextureCleanupMgr.cleanup();
++    if (!borealis::enabled() || !borealis::compositionEligible()) mBorealisGraphics.reset();
+ 
+     // Check each context's cache management policy, cleaning up any cached resources that have not
+     // been used after a certain amount of time. The duration is chosen based upon how long we
+@@ -929,6 +943,18 @@ void SkiaRenderEngine::drawLayersInternal(
+ 
+     sk_sp<SkSurface> dstSurface = surfaceTextureRef->getOrCreateSurface(display.outputDataspace);
+ 
++    // Borealis Android 17 SDR composition. Protected/HDR/effect/capture frames bypass it.
++    const auto borealisOutput = dstSurface;
++    const bool borealisSafe = !mInProtectedContext && !mCapture->isCaptureRunning() &&
++            !isHdrDataspace(display.outputDataspace) &&
++            std::none_of(layers.begin(), layers.end(), [](const auto& layer) {
++                return isHdrDataspace(layer.sourceDataspace) || layer.backgroundBlurRadius > 0 ||
++                        !layer.blurRegions.empty() || layer.postProcessEffect ||
++                        (layer.source.buffer.buffer &&
++                         (layer.source.buffer.buffer->getBuffer()->getUsage() & GRALLOC_USAGE_PROTECTED));
++            });
++    dstSurface = mBorealisGraphics.begin(context, dstSurface, display, borealisSafe);
++
+     SkCanvas* dstCanvas = mCapture->tryCapture(dstSurface.get());
+     if (dstCanvas == nullptr) {
+         ALOGE("Cannot acquire canvas from Skia.");
+@@ -1022,6 +1048,8 @@ void SkiaRenderEngine::drawLayersInternal(
+ 
+     // Clear the entire canvas with a transparent black to prevent ghost images.
+     canvas->clear(SK_ColorTRANSPARENT);
++    canvas->scale(float(dstSurface->width()) / borealisOutput->width(),
++                  float(dstSurface->height()) / borealisOutput->height());
+     initCanvas(canvas, display);
+ 
+     if (kPrintLayerSettings) {
+@@ -1629,6 +1657,9 @@ void SkiaRenderEngine::drawLayersInternal(
+     }
+ 
+     surfaceAutoSaveRestore.restore();
++    mBorealisGraphics.finish(context, dstSurface, borealisOutput, display);
++    dstSurface = borealisOutput;
++    activeSurface = dstSurface;
+     mCapture->endCapture();
+ 
+     LOG_THREAD_STATE_AND_CRASH_IF(activeSurface != dstSurface);
+diff --git a/libs/renderengine/skia/SkiaRenderEngine.h b/libs/renderengine/skia/SkiaRenderEngine.h
+index 25f3038..d08b6ce 100644
+--- a/libs/renderengine/skia/SkiaRenderEngine.h
++++ b/libs/renderengine/skia/SkiaRenderEngine.h
+@@ -42,6 +42,7 @@
+ #include "RenderDocUtils.h"
+ #include "android-base/macros.h"
+ #include "compat/SkiaGpuContext.h"
++#include "BorealisGraphics.h"
+ #include "debug/SkiaCapture.h"
+ #include "filters/BlurFilter.h"
+ #include "filters/EdgeExtensionShaderFactory.h"
+@@ -244,6 +245,7 @@ private:
+     LutShader mLutShader = LutShader(mRuntimeEffectManager);
+     MouriMap mLocalTonemapper = MouriMap(mRuntimeEffectManager);
+     StretchShaderFactory mStretchShaderFactory = StretchShaderFactory(mRuntimeEffectManager);
++    BorealisGraphics mBorealisGraphics;
+ 
+     sp<Fence> mLastDrawFence;
+     BlurFilter* mBlurFilter = nullptr;
+diff --git a/services/surfaceflinger/CompositionEngine/include/compositionengine/impl/Output.h b/services/surfaceflinger/CompositionEngine/include/compositionengine/impl/Output.h
+index 1b7b2e0..b23906e 100644
+--- a/services/surfaceflinger/CompositionEngine/include/compositionengine/impl/Output.h
++++ b/services/surfaceflinger/CompositionEngine/include/compositionengine/impl/Output.h
+@@ -205,6 +205,9 @@ private:
+ 
+     // Whether the content must be recomposed this frame.
+     bool mMustRecompose = false;
++    bool mBorealisGraphicsActive = false;
++    uint64_t mBorealisConfigToken = 0;
++
+ };
+ 
+ // This template factory function standardizes the implementation details of the
+diff --git a/services/surfaceflinger/CompositionEngine/src/Output.cpp b/services/surfaceflinger/CompositionEngine/src/Output.cpp
+index d43679d..634e006 100644
+--- a/services/surfaceflinger/CompositionEngine/src/Output.cpp
++++ b/services/surfaceflinger/CompositionEngine/src/Output.cpp
+@@ -49,6 +49,8 @@
+ #pragma clang diagnostic ignored "-Wconversion"
+ 
+ #include <renderengine/DisplaySettings.h>
++#include <renderengine/BorealisGraphics.h>
++#include <sstream>
+ #include <renderengine/RenderEngine.h>
+ 
+ // TODO(b/129481165): remove the #pragma below and fix conversion issues
+@@ -884,6 +886,31 @@ void Output::updateCompositionState(const compositionengine::CompositionRefreshA
+         return;
+     }
+ 
++    // Borealis Android 17 output eligibility. Never move secure outputs to this path.
++    const bool internal = getState().layerFilter.toInternalDisplay;
++    bool compatible = internal;
++    for (const auto* layer : getOutputLayersOrderedByZ()) {
++        const auto* state = layer->getLayerFE().getCompositionState();
++        if (state && (state->isSecure || state->hasProtectedContent ||
++                state->backgroundBlurRadius > 0 ||
++                (state->dataspace & HAL_DATASPACE_TRANSFER_MASK) == HAL_DATASPACE_TRANSFER_ST2084 ||
++                (state->dataspace & HAL_DATASPACE_TRANSFER_MASK) == HAL_DATASPACE_TRANSFER_HLG))
++            compatible = false;
++    }
++    const bool wasBorealisActive = mBorealisGraphicsActive;
++    mBorealisGraphicsActive = compatible && renderengine::borealis::enabled();
++    const auto borealisConfig = renderengine::borealis::configurationToken();
++    const bool borealisChanged = wasBorealisActive != mBorealisGraphicsActive ||
++            ((mBorealisGraphicsActive || wasBorealisActive) &&
++             mBorealisConfigToken != borealisConfig);
++    mBorealisConfigToken = borealisConfig;
++    if (internal && (!compatible || borealisChanged)) renderengine::borealis::invalidateHistory();
++    if (internal && !compatible && renderengine::borealis::enabled())
++        renderengine::borealis::reportStatus("bypassed");
++    if (internal && !renderengine::borealis::enabled()) renderengine::borealis::reportStatus("off");
++    if (borealisChanged)
++        editState().dirtyRegion.set(getState().layerStackSpace.getContent());
++
+     mLayerRequestingBackgroundBlur = findLayerRequestingBackgroundComposition();
+     bool forceClientComposition = mLayerRequestingBackgroundBlur != nullptr;
+ 
+@@ -895,7 +922,7 @@ void Output::updateCompositionState(const compositionengine::CompositionRefreshA
+         const bool layerForceClientComposition =
+                 refreshArgs.forcedClientCompositionLayerStacks.contains(outputLayerStack);
+ 
+-        layer->updateCompositionState(refreshArgs.updatingGeometryThisFrame,
++        layer->updateCompositionState(refreshArgs.updatingGeometryThisFrame || borealisChanged,
+                                       layerForceClientComposition || forceClientComposition,
+                                       refreshArgs.internalDisplayRotationFlags,
+                                       properties ? properties->lutProperties : std::nullopt);
+@@ -1399,6 +1426,14 @@ std::optional<base::unique_fd> Output::composeSurfaces(
+                      ? base::StringPrintf("hasClientComposition %s", mNamePlusId.c_str())
+                      : "",
+              outputState.usesClientComposition};
++    // Borealis keeps the HWC decision. Mixed/device-composed frames bypass effects.
++    const bool borealisEligible = mBorealisGraphicsActive &&
++            outputState.usesClientComposition && !outputState.usesDeviceComposition;
++    if (outputState.layerFilter.toInternalDisplay) {
++        renderengine::borealis::setCompositionEligible(borealisEligible);
++        if (renderengine::borealis::enabled() && !borealisEligible)
++            renderengine::borealis::reportStatus("hwc_bypass");
++    }
+     if (!hasClientComposition) {
+         setExpensiveRenderingExpected(false);
+         return base::unique_fd();
+@@ -1425,11 +1460,20 @@ std::optional<base::unique_fd> Output::composeSurfaces(
+                                               clientCompositionDisplay.outputDataspace,
+                                               clientCompositionLayersFE);
+     appendRegionFlashRequests(debugRegion, clientCompositionLayers);
++    clientCompositionDisplay.borealisEligible = borealisEligible;
++    clientCompositionDisplay.borealisConfigToken = mBorealisConfigToken;
++    if (borealisEligible && renderengine::borealis::frameGenerationEnabled()) {
++        std::ostringstream frame;
++        for (const auto& layer : clientCompositionLayers) PrintTo(layer, &frame);
++        clientCompositionDisplay.borealisFrameToken = std::hash<std::string>{}(frame.str());
++    }
++
+ 
+     OutputCompositionState& outputCompositionState = editState();
+     // Check if the client composition requests were rendered into the provided graphic buffer. If
+     // so, we can reuse the buffer and avoid client composition.
+-    if (mClientCompositionRequestCache) {
++    if (mClientCompositionRequestCache &&
++            !(borealisEligible && renderengine::borealis::frameGenerationEnabled())) {
+         if (mClientCompositionRequestCache->exists(tex->getBuffer()->getId(),
+                                                    clientCompositionDisplay,
+                                                    clientCompositionLayers)) {
+diff --git a/services/surfaceflinger/SurfaceFlinger.cpp b/services/surfaceflinger/SurfaceFlinger.cpp
+index 7565080..5351288 100644
+--- a/services/surfaceflinger/SurfaceFlinger.cpp
++++ b/services/surfaceflinger/SurfaceFlinger.cpp
+@@ -24,6 +24,7 @@
+ #define ATRACE_TAG ATRACE_TAG_GRAPHICS
+ 
+ #include "SurfaceFlinger.h"
++#include <renderengine/BorealisGraphics.h>
+ 
+ #include <aidl/android/hardware/power/Boost.h>
+ #include <android-base/logging.h>
+@@ -3446,6 +3447,8 @@ CompositeResultsPerDisplay SurfaceFlinger::composite(
+     }
+ 
+     mCompositionEngine->present(refreshArgs);
++    // Borealis: request one real presentation after an interpolated midpoint.
++    if (renderengine::borealis::needsRepaint()) scheduleComposite(FrameHint::kNone);
+ 
+     finalizeReadback(refreshArgs.outputs);
+ 

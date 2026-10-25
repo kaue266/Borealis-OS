@@ -1,0 +1,180 @@
+diff --git a/init/Android.bp b/init/Android.bp
+index 2783c9b..7ee5c0a 100644
+--- a/init/Android.bp
++++ b/init/Android.bp
+@@ -273,6 +273,8 @@ cc_defaults {
+ 
+ cc_library_static {
+     name: "libinit",
++    // Borealis A30 model/SKU hook.
++    whole_static_libs: ["//device/samsung/exynos7885-common:libinit_exynos7885"],
+     defaults: ["libinit_defaults"],
+ }
+ 
+diff --git a/init/first_stage_init.cpp b/init/first_stage_init.cpp
+index 8b94699..ec141ba 100644
+--- a/init/first_stage_init.cpp
++++ b/init/first_stage_init.cpp
+@@ -38,6 +38,7 @@
+ #include <android-base/logging.h>
+ #include <android-base/stringify.h>
+ #include <android-base/stringprintf.h>
++#include <android-base/strings.h>
+ #include <android/avf_cc_flags.h>
+ #include <fs_mgr.h>
+ #include <modprobe/modprobe.h>
+@@ -335,6 +336,57 @@ static std::unique_ptr<FirstStageMount> CreateFirstStageMount(const std::string&
+     }
+ }
+ 
++
++// Opt-in diagnostic logging to the existing persistent RAM ring. No disk mount
++// or partition write is performed. The descriptor closes on stage transition.
++static void BorealisFirstStageTrace(const std::string& cmdline) {
++    bool enabled = false;
++    for (const auto& token : android::base::Split(cmdline, " ")) {
++        if (token == "androidboot.borealis_boot_trace=1") enabled = true;
++    }
++    std::string marker;
++    if (android::base::ReadFileToString("/borealis_boot_trace", &marker, false) && marker == "1\n") enabled = true;
++    if (!enabled) return;
++    setenv("BOREALIS_BOOT_TRACE", "1", 1);
++    SetFatalRebootTarget(std::string("recovery"));
++
++    std::string device;
++    unsigned int major_id = 0, minor_id = 0;
++    if (!android::base::ReadFileToString("/sys/class/pmsg/pmsg0/dev", &device) ||
++        sscanf(device.c_str(), "%u:%u", &major_id, &minor_id) != 2) return;
++    const dev_t number = makedev(major_id, minor_id);
++    if (mknod("/dev/pmsg0", S_IFCHR | 0600, number) && errno != EEXIST) return;
++    struct stat state {};
++    if (lstat("/dev/pmsg0", &state) || !S_ISCHR(state.st_mode) || state.st_rdev != number) return;
++    const int fd = open("/dev/pmsg0", O_WRONLY | O_CLOEXEC | O_NOFOLLOW);
++    if (fd < 0) return;
++    android::base::SetLogger([fd](android::base::LogId id, android::base::LogSeverity severity,
++                                 const char* tag, const char* file, unsigned int line,
++                                 const char* message) {
++        const int saved_errno = errno;
++        android::base::KernelLogger(id, severity, tag, file, line, message);
++        if (severity >= android::base::INFO) {
++            char record[2048];
++            const int count = snprintf(record, sizeof(record), "BOREALIS_INIT_TRACE [%d] %s:%u %s\n",
++                                       static_cast<int>(severity), file ? file : "init", line,
++                                       message ? message : "");
++            if (count > 0) {
++                const size_t length = count < static_cast<int>(sizeof(record))
++                                          ? count : sizeof(record) - 1;
++                size_t position = 0;
++                while (position < length) {
++                    const ssize_t result = write(fd, record + position, length - position);
++                    if (result > 0) position += result;
++                    else if (result < 0 && errno == EINTR) continue;
++                    else break;
++                }
++            }
++        }
++        errno = saved_errno;
++    });
++    LOG(INFO) << "BOREALIS_INIT_TRACE first-stage capture enabled; RAM only";
++}
++
+ int FirstStageMain(int argc, char** argv) {
+     boot_clock::time_point start_time = boot_clock::now();
+ 
+@@ -414,6 +466,7 @@ int FirstStageMain(int argc, char** argv) {
+     // Now that tmpfs is mounted on /dev and we have /dev/kmsg, we can actually
+     // talk to the outside world...
+     InitKernelLogging(argv);
++    BorealisFirstStageTrace(cmdline);
+ 
+     if (!errors.empty()) {
+         for (const auto& [error_string, error_errno] : errors) {
+diff --git a/init/property_service.cpp b/init/property_service.cpp
+index e6fffc4..1ed520f 100644
+--- a/init/property_service.cpp
++++ b/init/property_service.cpp
+@@ -75,6 +75,8 @@
+ #include "system/core/init/property_service.pb.h"
+ #include "util.h"
+ 
++extern void vendor_load_properties(void);
++
+ [[maybe_unused]] static constexpr char APPCOMPAT_OVERRIDE_PROP_FOLDERNAME[] =
+         "/dev/__properties__/appcompat_override";
+ [[maybe_unused]] static constexpr char APPCOMPAT_OVERRIDE_PROP_TREE_FILE[] =
+@@ -1239,6 +1241,8 @@ void PropertyLoadBootDefaults() {
+         }
+     }
+ 
++    // Borealis A30 model/SKU hook.
++    vendor_load_properties();
+     property_initialize_ro_product_props();
+     property_derive_build_fingerprint();
+     property_initialize_ro_cpu_abilist();
+diff --git a/init/util.cpp b/init/util.cpp
+index 6241b66..8f43785 100644
+--- a/init/util.cpp
++++ b/init/util.cpp
+@@ -26,6 +26,9 @@
+ #include <stdlib.h>
+ #include <string.h>
+ #include <sys/socket.h>
++#include <sys/stat.h>
++#include <sys/sysmacros.h>
++#include <algorithm>
+ #include <sys/un.h>
+ #include <sys/wait.h>
+ #include <time.h>
+@@ -665,9 +668,52 @@ void SetStdioToDevNull(char** argv) {
+     if (fd > STDERR_FILENO) close(fd);
+ }
+ 
++
++// Preserve explicitly requested boot diagnostics across init's exec boundaries.
++// The existing pmsg device is a RAM ring, not a physical storage partition.
++static void BorealisStageTrace(char** argv) {
++    const char* enabled = getenv("BOREALIS_BOOT_TRACE");
++    if (!enabled || strcmp(enabled, "1")) return;
++    SetFatalRebootTarget(std::string("recovery"));
++    std::string device;
++    unsigned int major_id = 0, minor_id = 0;
++    if (!android::base::ReadFileToString("/sys/class/pmsg/pmsg0/dev", &device) ||
++        sscanf(device.c_str(), "%u:%u", &major_id, &minor_id) != 2) return;
++    struct stat state {};
++    if (lstat("/dev/pmsg0", &state) || !S_ISCHR(state.st_mode) ||
++        state.st_rdev != makedev(major_id, minor_id)) return;
++    const int fd = open("/dev/pmsg0", O_WRONLY | O_CLOEXEC | O_NOFOLLOW);
++    if (fd < 0) return;
++    android::base::SetLogger([fd](android::base::LogId id, android::base::LogSeverity severity,
++                                 const char* tag, const char* file, unsigned int line,
++                                 const char* message) {
++        const int saved_errno = errno;
++        android::base::KernelLogger(id, severity, tag, file, line, message);
++        if (severity >= android::base::INFO) {
++            char record[2048];
++            const int count = snprintf(record, sizeof(record), "BOREALIS_STAGE_TRACE [%d] %s:%u %s\n",
++                                      static_cast<int>(severity), file ? file : "init", line,
++                                      message ? message : "");
++            if (count > 0) {
++                const size_t length = std::min(static_cast<size_t>(count), sizeof(record) - 1);
++                size_t position = 0;
++                while (position < length) {
++                    const ssize_t result = write(fd, record + position, length - position);
++                    if (result > 0) position += result;
++                    else if (result < 0 && errno == EINTR) continue;
++                    else break;
++                }
++            }
++        }
++        errno = saved_errno;
++    });
++    LOG(INFO) << "BOREALIS_STAGE_TRACE entered " << (argv && argv[1] ? argv[1] : "init");
++}
++
+ void InitKernelLogging(char** argv) {
+     SetFatalRebootTarget();
+     android::base::InitLogging(argv, &android::base::KernelLogger, InitAborter);
++    BorealisStageTrace(argv);
+ }
+ 
+ bool IsRecoveryMode() {

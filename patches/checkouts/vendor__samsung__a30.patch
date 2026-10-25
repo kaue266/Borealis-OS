@@ -1,0 +1,12 @@
+diff --git a/Android.bp b/Android.bp
+index 48b5aeb..25b524b 100644
+--- a/Android.bp
++++ b/Android.bp
+@@ -4,6 +4,7 @@
+ 
+ soong_namespace {
+ 	imports: [
++        "hardware/samsung",
+ 		"vendor/samsung/exynos7885-common",
+                 "device/samsung/exynos7885-common",
+                 "hardware/samsung_slsi-linaro/exynos",

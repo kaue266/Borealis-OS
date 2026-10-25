@@ -1,0 +1,470 @@
+diff --git a/dumpstate/Android.bp b/dumpstate/Android.bp
+index 9487819..786aa7e 100644
+--- a/dumpstate/Android.bp
++++ b/dumpstate/Android.bp
+@@ -1,26 +1 @@
+-cc_binary {
+-    name: "android.hardware.dumpstate@1.0-service.exynos",
+-    init_rc: ["android.hardware.dumpstate@1.0-service.exynos.rc"],
+-    relative_install_path: "hw",
+-    vendor: true,
+-    srcs: [
+-        "DumpstateDevice.cpp",
+-        "service.cpp",
+-    ],
+-    cflags: [
+-        "-Wall",
+-        "-Werror",
+-    ],
+-
+-    shared_libs: [
+-        "android.hardware.dumpstate@1.0",
+-        "libbase",
+-        "libcutils",
+-        "libdumpstateutil",
+-        "libhidlbase",
+-        "liblog",
+-        "libutils",
+-        "libion",
+-    ],
+-
+-}
++// Borealis A30 uses AOSP dumpstate; unselected legacy HIDL provider excluded.
+diff --git a/ssp/Android.bp b/ssp/Android.bp
+index 8efda31..d268f11 100644
+--- a/ssp/Android.bp
++++ b/ssp/Android.bp
+@@ -1,11 +1 @@
+-soong_namespace {
+-    imports: [
+-        "hardware/samsung_slsi-linaro/exynos/tee/kinibi520",
+-        "hardware/samsung_slsi-linaro/exynos/tee/kinibi510",
+-        "hardware/samsung_slsi-linaro/exynos/tee/kinibi500"
+-    ],
+-}
+-
+-subdirs = [
+-    "*",
+-]
++// Borealis A30 has no SSP/StrongBox provider; keep its selected Teegris Keymaster HAL.
+diff --git a/ssp/strongbox_keymaster/Android.bp b/ssp/strongbox_keymaster/Android.bp
+index cbcddcb..d268f11 100644
+--- a/ssp/strongbox_keymaster/Android.bp
++++ b/ssp/strongbox_keymaster/Android.bp
+@@ -1,91 +1 @@
+-//
+-// Copyright (C) 2017 The Android Open Source Project
+-//
+-// Licensed under the Apache License, Version 2.0 (the "License");
+-// you may not use this file except in compliance with the License.
+-// You may obtain a copy of the License at
+-//
+-//      http://www.apache.org/licenses/LICENSE-2.0
+-//
+-// Unless required by applicable law or agreed to in writing, software
+-// distributed under the License is distributed on an "AS IS" BASIS,
+-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+-// See the License for the specific language governing permissions and
+-// limitations under the License.
+-//
+-soong_namespace {
+-    imports: [
+-        "hardware/samsung_slsi-linaro/exynos/tee/kinibi520",
+-        "hardware/samsung_slsi-linaro/exynos/tee/kinibi510",
+-        "hardware/samsung_slsi-linaro/exynos/tee/kinibi500"
+-    ],
+-}
+-
+-cc_defaults {
+-    name: "sspkeymaster_device_src_default",
+-    cflags: [
+-        "-DTBASE_API_LEVEL=11",
+-        "-DSTRONGBOX_KEYMASTER_DEBUG",
+-    ],
+-    srcs: [
+-        "strongbox_device/ssp_strongbox_keymaster_impl.cpp",
+-        "strongbox_device/ssp_strongbox_keymaster_configuration.cpp",
+-        "strongbox_device/ssp_strongbox_keymaster_serialization.cpp",
+-        "strongbox_device/ssp_strongbox_keymaster_log.cpp",
+-        "strongbox_device/ssp_strongbox_keymaster_util.cpp",
+-        "strongbox_device/ssp_strongbox_keymaster_parse_key.cpp",
+-        "strongbox_device/ssp_strongbox_keymaster_encode_key.cpp",
+-        "strongbox_device/StrongboxKeymaster4Device.cpp",
+-        "strongbox_device/StrongboxKeymaster4DeviceImpl.cpp",
+-        "strongbox_device/ssp_strongbox_keymaster_hwctl.cpp",
+-    ],
+-    shared_libs: [
+-        "android.hardware.keymaster@4.0",
+-        "libbase",
+-        "libcutils",
+-        "libhardware",
+-        "libhidlbase",
+-        "libkeymaster4",
+-        "liblog",
+-        "libutils",
+-        "libcrypto",
+-        "libkeymaster4support",
+-        "libMcClient",
+-    ],
+-}
+-
+-cc_binary {
+-    name: "android.hardware.keymaster@4.0_strongbox-service",
+-    defaults: ["hidl_defaults",
+-        "sspkeymaster_device_src_default",
+-    ],
+-    relative_install_path: "hw",
+-    vendor: true,
+-    cflags: [
+-        "-DTBASE_API_LEVEL=11",
+-        "-DSTRONGBOX_KEYMASTER_DEBUG",
+-    ],
+-    srcs: [
+-        "service/service.cpp",
+-    ],
+-    local_include_dirs: [
+-         "include",
+-    ],
+-    init_rc: [
+-        "android.hardware.keymaster@4.0_strongbox-service.rc",
+-    ],
+-    compile_multilib: "64",
+-    shared_libs: [
+-        "android.hardware.keymaster@4.0",
+-        "libbase",
+-        "libcutils",
+-        "libhardware",
+-        "libhidlbase",
+-        "libkeymaster4",
+-        "liblog",
+-        "libutils",
+-        "libcrypto",
+-        "libMcClient",
+-        "libkeymaster4support",
+-    ],
+-}
++// Borealis A30 has no SSP/StrongBox provider; keep its selected Teegris Keymaster HAL.
+diff --git a/ssp/strongbox_keymaster/test/function_vts/Android.bp b/ssp/strongbox_keymaster/test/function_vts/Android.bp
+index 3b76280..d268f11 100644
+--- a/ssp/strongbox_keymaster/test/function_vts/Android.bp
++++ b/ssp/strongbox_keymaster/test/function_vts/Android.bp
+@@ -1,37 +1 @@
+-//
+-// Copyright (C) 2017 The Android Open Source Project
+-//
+-// Licensed under the Apache License, Version 2.0 (the "License");
+-// you may not use this file except in compliance with the License.
+-// You may obtain a copy of the License at
+-//
+-//      http://www.apache.org/licenses/LICENSE-2.0
+-//
+-// Unless required by applicable law or agreed to in writing, software
+-// distributed under the License is distributed on an "AS IS" BASIS,
+-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+-// See the License for the specific language governing permissions and
+-// limitations under the License.
+-//
+-
+-cc_binary {
+-    name: "strongbox_function_vts",
+-    defaults: ["VtsHalTargetTestDefaults"],
+-    srcs: [
+-        "HmacKeySharingTest.cpp",
+-        "KeymasterHidlTest.cpp",
+-        "VerificationTokenTest.cpp",
+-        "keymaster_hidl_hal_test.cpp",
+-    ],
+-    static_libs: [
+-        "android.hardware.keymaster@4.0",
+-        "libkeymaster4support",
+-	"libkeymaster4vtstest",
+-        "libgtest",
+-        "libgtest_main",
+-    ],
+-    shared_libs: [
+-        "libcrypto",
+-    ],
+-    //test_suites: ["general-tests"],
+-}
++// Borealis A30 has no SSP/StrongBox provider; keep its selected Teegris Keymaster HAL.
+diff --git a/ssp/strongbox_keymint/Android.bp b/ssp/strongbox_keymint/Android.bp
+index 78bbcec..d268f11 100644
+--- a/ssp/strongbox_keymint/Android.bp
++++ b/ssp/strongbox_keymint/Android.bp
+@@ -1,115 +1 @@
+-//
+-// Copyright (C) 2017 The Android Open Source Project
+-//
+-// Licensed under the Apache License, Version 2.0 (the "License");
+-// you may not use this file except in compliance with the License.
+-// You may obtain a copy of the License at
+-//
+-//      http://www.apache.org/licenses/LICENSE-2.0
+-//
+-// Unless required by applicable law or agreed to in writing, software
+-// distributed under the License is distributed on an "AS IS" BASIS,
+-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+-// See the License for the specific language governing permissions and
+-// limitations under the License.
+-//
+-soong_namespace {
+-    imports: [
+-        "hardware/samsung_slsi-linaro/exynos/tee/kinibi520",
+-        "hardware/samsung_slsi-linaro/exynos/tee/kinibi510",
+-        "hardware/samsung_slsi-linaro/exynos/tee/kinibi500"
+-    ],
+-}
+-
+-cc_defaults {
+-    name: "sspkeymint_device_src_default",
+-    cflags: [
+-        "-DTBASE_API_LEVEL=11",
+-        //"-DSTRONGBOX_KEYMASTER_DEBUG",
+-    ],
+-    srcs: [
+-        "strongbox_device/ssp_strongbox_keymaster_impl.cpp",
+-        "strongbox_device/ssp_strongbox_keymaster_configuration.cpp",
+-        "strongbox_device/ssp_strongbox_keymaster_serialization.cpp",
+-        "strongbox_device/ssp_strongbox_keymaster_log.cpp",
+-        "strongbox_device/ssp_strongbox_keymaster_util.cpp",
+-        "strongbox_device/ssp_strongbox_keymaster_parse_key.cpp",
+-        "strongbox_device/ssp_strongbox_keymaster_encode_key.cpp",
+-        "strongbox_device/StrongboxKeymintDevice.cpp",
+-        "strongbox_device/StrongboxKeymintImpl.cpp",
+-        "strongbox_device/StrongboxKeymintOperation.cpp",
+-        "strongbox_device/StrongboxSharedSecret.cpp",
+-        "strongbox_device/ssp_strongbox_keymaster_hwctl.cpp",
+-    ],
+-    shared_libs: [
+-        "android.hardware.keymaster@4.0",
+-        "android.hardware.security.keymint-V4-ndk",
+-        "android.hardware.security.sharedsecret-V1-ndk",
+-        "android.hardware.security.secureclock-V1-ndk",
+-        "libbase",
+-        "libcutils",
+-        "libhardware",
+-        "libhidlbase",
+-        "libkeymaster4",
+-        "liblog",
+-        "libutils",
+-        "libcrypto",
+-        "libkeymaster4support",
+-        "libMcClient",
+-        "libkeymint",
+-        "libbinder_ndk",
+-        "libcppbor_external",
+-    ],
+-}
+-
+-cc_binary {
+-    name: "android.hardware.security.keymint@1.0_strongbox-service",
+-    defaults: ["hidl_defaults",
+-        "sspkeymint_device_src_default",
+-    ],
+-    relative_install_path: "hw",
+-    vendor: true,
+-	cflags: [
+-        "-DTBASE_API_LEVEL=11",
+-        //"-DSTRONGBOX_KEYMASTER_DEBUG",
+-    ],
+-    srcs: [
+-        "service/service.cpp",
+-    ],
+-    local_include_dirs: [
+-         "include",
+-    ],
+-    init_rc: [
+-        "android.hardware.security.keymint@1.0_strongbox-service.rc",
+-    ],
+-    compile_multilib: "64",
+-    shared_libs: [
+-        "android.hardware.keymaster@4.0",
+-        "android.hardware.security.keymint-V4-ndk",
+-        "android.hardware.security.sharedsecret-V1-ndk",
+-        "android.hardware.security.secureclock-V1-ndk",
+-        "libbase",
+-        "libcutils",
+-        "libhardware",
+-        "libhidlbase",
+-        "libkeymaster4",
+-        "liblog",
+-        "libutils",
+-        "libcrypto",
+-        "libMcClient",
+-        "libkeymaster4support",
+-        "libkeymint",
+-        "libbinder_ndk",
+-        "libcppbor_external",
+-    ],
+-    required: [
+-        "android.hardware.strongbox_keystore.xml",
+-    ],
+-}
+-
+-prebuilt_etc {
+-    name: "android.hardware.strongbox_keystore.xml",
+-    sub_dir: "permissions",
+-    vendor: true,
+-    src: "android.hardware.strongbox_keystore.xml",
+-}
++// Borealis A30 has no SSP/StrongBox provider; keep its selected Teegris Keymaster HAL.
+diff --git a/ssp/strongbox_keymint/strongbox_test/functional_vts/Android.bp b/ssp/strongbox_keymint/strongbox_test/functional_vts/Android.bp
+index 8e90d07..d268f11 100644
+--- a/ssp/strongbox_keymint/strongbox_test/functional_vts/Android.bp
++++ b/ssp/strongbox_keymint/strongbox_test/functional_vts/Android.bp
+@@ -1,47 +1 @@
+-//
+-// Copyright (C) 2017 The Android Open Source Project
+-//
+-// Licensed under the Apache License, Version 2.0 (the "License");
+-// you may not use this file except in compliance with the License.
+-// You may obtain a copy of the License at
+-//
+-//      http://www.apache.org/licenses/LICENSE-2.0
+-//
+-// Unless required by applicable law or agreed to in writing, software
+-// distributed under the License is distributed on an "AS IS" BASIS,
+-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+-// See the License for the specific language governing permissions and
+-// limitations under the License.
+-//
+-
+-cc_binary {
+-    name: "strongbox_km_test",
+-    defaults: [
+-        "VtsHalTargetTestDefaults",
+-        "use_libaidlvintf_gtest_helper_static"
+-    ],
+-    srcs: [
+-        "AttestKeyTest.cpp",
+-        "DeviceUniqueAttestationTest.cpp",
+-        "KeyMintTest.cpp",
+-        "KeyMintAidlTestBase.cpp",
+-        "SharedSecretAidlTest.cpp",
+-    ],
+-    shared_libs: [
+-        "libbinder_ndk",
+-        "libcrypto",
+-        "libkeymint",
+-        "libkeymint_support",
+-    ],
+-    static_libs: [
+-        "android.hardware.security.keymint-V4-ndk",
+-        "android.hardware.security.secureclock-V1-ndk",
+-        "android.hardware.security.sharedsecret-V1-ndk",
+-        "libcppbor_external",
+-        "libcppcose_rkp",
+-        "libgmock_ndk",
+-        "libkeymint_remote_prov_support",
+-        "libgtest",
+-        "libgtest_main",
+-    ],
+-}
++// Borealis A30 has no SSP/StrongBox provider; keep its selected Teegris Keymaster HAL.
+diff --git a/ssp/wait_for_dual_keymaster/Android.bp b/ssp/wait_for_dual_keymaster/Android.bp
+index da10fdb..d268f11 100644
+--- a/ssp/wait_for_dual_keymaster/Android.bp
++++ b/ssp/wait_for_dual_keymaster/Android.bp
+@@ -1,44 +1 @@
+-//
+-// Copyright (C) 2018 The Android Open Source Project
+-//
+-// Licensed under the Apache License, Version 2.0 (the "License");
+-// you may not use this file except in compliance with the License.
+-// You may obtain a copy of the License at
+-//
+-//      http://www.apache.org/licenses/LICENSE-2.0
+-//
+-// Unless required by applicable law or agreed to in writing, software
+-// distributed under the License is distributed on an "AS IS" BASIS,
+-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+-// See the License for the specific language governing permissions and
+-// limitations under the License.
+-soong_namespace {
+-    imports: [
+-        "hardware/samsung_slsi-linaro/exynos/tee/kinibi520",
+-        "hardware/samsung_slsi-linaro/exynos/tee/kinibi510",
+-        "hardware/samsung_slsi-linaro/exynos/tee/kinibi500"
+-    ],
+-}
+-
+-cc_binary {
+-    name: "wait_for_dual_keymaster",
+-    relative_install_path: "hw",
+-    srcs: [ "wait_for_dual_keymaster.cpp" ],
+-    cflags: [ "-Werror", "-Wall" ],
+-
+-    init_rc: [
+-        "wait_for_dual_keymaster.rc",
+-    ],
+-
+-    shared_libs: [
+-        "libbase",
+-        "libbinder",
+-        "libutils",
+-
+-        "android.hardware.keymaster@4.0",
+-        "android.hardware.keymaster@4.1",
+-        "libkeymaster4support",
+-        "libkeymaster4_1support",
+-    ],
+-    proprietary: true,
+-}
++// Borealis A30 has no SSP/StrongBox provider; keep its selected Teegris Keymaster HAL.
+diff --git a/ssp/wait_for_dual_keymint/Android.bp b/ssp/wait_for_dual_keymint/Android.bp
+index 567904a..d268f11 100644
+--- a/ssp/wait_for_dual_keymint/Android.bp
++++ b/ssp/wait_for_dual_keymint/Android.bp
+@@ -1,51 +1 @@
+-//
+-// Copyright (C) 2018 The Android Open Source Project
+-//
+-// Licensed under the Apache License, Version 2.0 (the "License");
+-// you may not use this file except in compliance with the License.
+-// You may obtain a copy of the License at
+-//
+-//      http://www.apache.org/licenses/LICENSE-2.0
+-//
+-// Unless required by applicable law or agreed to in writing, software
+-// distributed under the License is distributed on an "AS IS" BASIS,
+-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+-// See the License for the specific language governing permissions and
+-// limitations under the License.
+-soong_namespace {
+-    imports: [
+-        "hardware/samsung_slsi-linaro/exynos/tee/kinibi520",
+-        "hardware/samsung_slsi-linaro/exynos/tee/kinibi510",
+-        "hardware/samsung_slsi-linaro/exynos/tee/kinibi500"
+-    ],
+-}
+-
+-cc_binary {
+-    name: "wait_for_dual_keymint",
+-    relative_install_path: "hw",
+-    srcs: [ "wait_for_dual_keymint.cpp" ],
+-    cflags: [ "-Werror", "-Wall" ],
+-
+-    init_rc: [
+-        "wait_for_dual_keymint.rc",
+-    ],
+-
+-    shared_libs: [
+-        "libbinder_ndk",
+-        "libbase",
+-        "libbinder",
+-        "libutils",
+-
+-        "android.hardware.keymaster@4.0",
+-        "android.hardware.keymaster@4.1",
+-        "libkeymaster4support",
+-        "libkeymaster4_1support",
+-
+-        "android.hardware.security.keymint-V4-ndk",
+-        "android.hardware.security.sharedsecret-V1-ndk",
+-        "android.hardware.security.secureclock-V1-ndk",
+-
+-        "libkeymint",
+-    ],
+-    proprietary: true,
+-}
++// Borealis A30 has no SSP/StrongBox provider; keep its selected Teegris Keymaster HAL.
