@@ -1,0 +1,96 @@
+--- a/vendor/borealis/sepolicy/system_ext/public/property.te
++++ b/vendor/borealis/sepolicy/system_ext/public/property.te
+@@ -1,3 +1,19 @@
+ # SPDX-License-Identifier: Apache-2.0
+ # Settings owns configuration; the vendor daemon only reads this public API.
+ system_restricted_prop(borealis_perf_config_prop)
++
++# Samsung HAL public attributes, from device/lineage/sepolicy/common/public.
++define(`hal_attribute_lineage', `
++attribute hal_$1;
++expandattribute hal_$1 true;
++attribute hal_$1_client;
++expandattribute hal_$1_client true;
++attribute hal_$1_server;
++expandattribute hal_$1_server false;
++')
++# HALs
++hal_attribute_lineage(lineage_health)
++hal_attribute_lineage(lineage_livedisplay)
++hal_attribute_lineage(lineage_touch)
++hal_attribute_lineage(lineage_trust)
++hal_attribute_lineage(lineage_powershare)
+--- a/vendor/borealis/sepolicy/vendor/borealis_perf.te
++++ b/vendor/borealis/sepolicy/vendor/borealis_perf.te
+@@ -43,3 +43,29 @@
+ r_dir_file(system_app, borealis_ksm)
+ r_dir_file(system_app, borealis_usb)
+ r_dir_file(system_app, borealis_tcp)
++
++# Samsung Lineage AIDL HAL service types and IPC bindings (upstream common/dynamic).
++type hal_lineage_health_service, hal_service_type, service_manager_type;
++type hal_lineage_livedisplay_service, hal_service_type, service_manager_type;
++type hal_lineage_powershare_service, hal_service_type, service_manager_type;
++type hal_lineage_touch_service, hal_service_type, service_manager_type;
++
++# HwBinder IPC from client to server
++binder_call(hal_lineage_health_client, hal_lineage_health_server)
++
++hal_attribute_service(hal_lineage_health, hal_lineage_health_service)
++
++# HwBinder IPC from client to server
++binder_call(hal_lineage_livedisplay_client, hal_lineage_livedisplay_server)
++
++hal_attribute_service(hal_lineage_livedisplay, hal_lineage_livedisplay_service)
++
++# HwBinder IPC from client to server
++binder_call(hal_lineage_touch_client, hal_lineage_touch_server)
++
++hal_attribute_service(hal_lineage_touch, hal_lineage_touch_service)
++
++# HwBinder IPC from client to server
++binder_call(hal_lineage_powershare_client, hal_lineage_powershare_server)
++
++hal_attribute_service(hal_lineage_powershare, hal_lineage_powershare_service)
+--- a/vendor/borealis/sepolicy/system_ext/private/system_app.te
++++ b/vendor/borealis/sepolicy/system_ext/private/system_app.te
+@@ -1,2 +1,12 @@
+ # SPDX-License-Identifier: Apache-2.0
+ set_prop(system_app, borealis_perf_config_prop)
++
++# Client memberships for the retained Samsung Lineage HALs (upstream common/private).
++hal_client_domain(system_app, hal_lineage_livedisplay)
++hal_client_domain(system_app, hal_lineage_touch)
++hal_client_domain(system_server, hal_lineage_health)
++hal_client_domain(system_server, hal_lineage_livedisplay)
++hal_client_domain(system_server, hal_lineage_touch)
++hal_client_domain(system_server, hal_lineage_powershare)
++hal_client_domain(platform_app, hal_lineage_livedisplay)
++hal_client_domain(platform_app, hal_lineage_powershare)
+--- a/device/samsung_slsi/sepolicy/common/vendor/service_contexts
++++ b/device/samsung_slsi/sepolicy/common/vendor/service_contexts
+@@ -15,3 +15,24 @@
+ vendor.samsung.hardware.radio.network.ISehRadioNetwork/slot2        u:object_r:hal_radio_service:s0
+ vendor.samsung.hardware.radio.sim.ISehRadioSim/slot1                u:object_r:hal_radio_service:s0
+ vendor.samsung.hardware.radio.sim.ISehRadioSim/slot2                u:object_r:hal_radio_service:s0
++
++# Exact AIDL service labels from device/lineage/sepolicy/common/dynamic.
++vendor.lineage.health.IChargingControl/default                 u:object_r:hal_lineage_health_service:s0
++vendor.lineage.health.IFastCharge/default                      u:object_r:hal_lineage_health_service:s0
++vendor.lineage.livedisplay.IAdaptiveBacklight/default          u:object_r:hal_lineage_livedisplay_service:s0
++vendor.lineage.livedisplay.IAntiFlicker/default                u:object_r:hal_lineage_livedisplay_service:s0
++vendor.lineage.livedisplay.IAutoContrast/default               u:object_r:hal_lineage_livedisplay_service:s0
++vendor.lineage.livedisplay.IColorBalance/default               u:object_r:hal_lineage_livedisplay_service:s0
++vendor.lineage.livedisplay.IColorEnhancement/default           u:object_r:hal_lineage_livedisplay_service:s0
++vendor.lineage.livedisplay.IDisplayColorCalibration/default    u:object_r:hal_lineage_livedisplay_service:s0
++vendor.lineage.livedisplay.IDisplayModes/default               u:object_r:hal_lineage_livedisplay_service:s0
++vendor.lineage.livedisplay.IPictureAdjustment/default          u:object_r:hal_lineage_livedisplay_service:s0
++vendor.lineage.livedisplay.IReadingEnhancement/default         u:object_r:hal_lineage_livedisplay_service:s0
++vendor.lineage.livedisplay.ISunlightEnhancement/default        u:object_r:hal_lineage_livedisplay_service:s0
++vendor.lineage.powershare.IPowerShare/default                  u:object_r:hal_lineage_powershare_service:s0
++vendor.lineage.touch.IGloveMode/default                        u:object_r:hal_lineage_touch_service:s0
++vendor.lineage.touch.IHighTouchPollingRate/default             u:object_r:hal_lineage_touch_service:s0
++vendor.lineage.touch.IKeyDisabler/default                      u:object_r:hal_lineage_touch_service:s0
++vendor.lineage.touch.IKeySwapper/default                       u:object_r:hal_lineage_touch_service:s0
++vendor.lineage.touch.IStylusMode/default                       u:object_r:hal_lineage_touch_service:s0
++vendor.lineage.touch.ITouchscreenGesture/default               u:object_r:hal_lineage_touch_service:s0

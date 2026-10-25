@@ -1,0 +1,16 @@
+out/
+out-*/
+.repo/
+__pycache__/
+*.pyc
+*.o
+*.so
+*.apk
+*.apex
+*.capex
+*.img
+*.pk8
+*.pem
+*.jks
+*.keystore
+.env

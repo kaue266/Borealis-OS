@@ -1,0 +1,11 @@
+--- a/device/samsung_slsi/sepolicy/common/public/file.te
++++ b/device/samsung_slsi/sepolicy/common/public/file.te
+@@ -1,7 +1,7 @@
+ # file.te
+ 
+ ### DATA
+-type zram_data_file, file_type, data_file_type, core_data_file_type;
++# zram_data_file is owned by the Android platform (mmd_setup.te).
+ 
+ ### SYSFS
+ type sysfs_battery_writable, sysfs_type, rw_fs_type, fs_type;

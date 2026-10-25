@@ -1,0 +1,20 @@
+--- a/hardware/google/pixel/power-libperfmgr/aidl/SupportManager.cpp
++++ b/hardware/google/pixel/power-libperfmgr/aidl/SupportManager.cpp
+@@ -86,6 +86,7 @@
+   {SessionMode::GRAPHICS_PIPELINE, 6},
+   {SessionMode::AUTO_CPU, 6},
+   {SessionMode::AUTO_GPU, 6},
++  {SessionMode::AUDIO_PERFORMANCE, 7},
+ };
+ 
+ constexpr SupportList<SessionTag> kSessionTagEarliestVersion {
+@@ -218,6 +219,9 @@
+             return false;
+         case SessionMode::GRAPHICS_PIPELINE:
+             return false;
++        case SessionMode::AUDIO_PERFORMANCE:
++            // No audio performance floor is implemented by this HAL.
++            return false;
+         default:
+             return true;
+     }
