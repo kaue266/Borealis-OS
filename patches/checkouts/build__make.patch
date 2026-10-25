@@ -1,0 +1,20 @@
+diff --git a/tools/releasetools/ota_from_target_files.py b/tools/releasetools/ota_from_target_files.py
+index add76ef..c5b41ea 100755
+--- a/tools/releasetools/ota_from_target_files.py
++++ b/tools/releasetools/ota_from_target_files.py
+@@ -1450,9 +1450,12 @@ def main(argv):
+                        " SPL downgrade. Target SPL: {} Source SPL: {}"
+                        .format(target_spl, source_spl))
+   if OPTIONS.disable_ublk:
+-    logger.info("Disabling UBLK as requested")
+-    args[0] = ModifyTargetFilesDynamicPartitionInfo(
+-        args[0], "disable_ublk", "true")
++    if generate_ab and OPTIONS.target_info_dict.get("use_dynamic_partitions") == "true":
++      logger.info("Disabling UBLK for dynamic A/B partitions")
++      args[0] = ModifyTargetFilesDynamicPartitionInfo(
++          args[0], "disable_ublk", "true")
++    else:
++      logger.info("UBLK does not apply to this OTA partition scheme")
+ 
+   if generate_ab:
+     GenerateAbOtaPackage(

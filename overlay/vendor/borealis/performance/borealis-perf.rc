@@ -1,0 +1,17 @@
+service borealis-perf /vendor/bin/borealis-perf
+    class late_start
+    user root
+    # cpufreq limits are 0660 system:system on the A30. No DAC override needed.
+    group root system
+    disabled
+    oneshot
+
+on post-fs-data
+    mkdir /data/vendor/borealis 0700 root root
+    restorecon_recursive /data/vendor/borealis
+
+on property:sys.boot_completed=1
+    exec_start borealis-perf
+
+on property:borealis.perf.request=* && property:sys.boot_completed=1
+    exec_start borealis-perf

@@ -1,0 +1,71 @@
+# SPDX-License-Identifier: Apache-2.0
+type borealis_perf, domain;
+type borealis_perf_exec, exec_type, vendor_file_type, file_type;
+init_daemon_domain(borealis_perf)
+
+type borealis_perf_data_file, file_type, data_file_type;
+type borealis_ksm, fs_type, sysfs_type;
+type borealis_usb, fs_type, sysfs_type;
+type borealis_tcp, fs_type, proc_type;
+vendor_public_prop(borealis_perf_status_prop)
+
+get_prop(system_app, borealis_perf_status_prop)
+get_prop(borealis_perf, borealis_perf_config_prop)
+get_prop(vendor_init, borealis_perf_config_prop)
+set_prop(borealis_perf, borealis_perf_status_prop)
+
+allow borealis_perf vendor_file:dir search;
+allow borealis_perf vendor_data_file:dir search;
+allow borealis_perf borealis_perf_data_file:dir rw_dir_perms;
+allow borealis_perf borealis_perf_data_file:file create_file_perms;
+r_dir_file(borealis_perf, proc)
+r_dir_file(borealis_perf, proc_net)
+r_dir_file(borealis_perf, proc_random)
+r_dir_file(borealis_perf, sysfs)
+r_dir_file(borealis_perf, sysfs_devices_system_cpu)
+allow borealis_perf sysfs_devices_system_cpu:file rw_file_perms;
+r_dir_file(borealis_perf, sysfs_gpu)
+r_dir_file(borealis_perf, sysfs_gpu_writable)
+allow borealis_perf sysfs_gpu_writable:file rw_file_perms;
+r_dir_file(borealis_perf, sysfs_mmc)
+allow borealis_perf sysfs_mmc:file rw_file_perms;
+r_dir_file(borealis_perf, borealis_ksm)
+allow borealis_perf borealis_ksm:file rw_file_perms;
+r_dir_file(borealis_perf, borealis_usb)
+allow borealis_perf borealis_usb:file rw_file_perms;
+r_dir_file(borealis_perf, borealis_tcp)
+allow borealis_perf borealis_tcp:file rw_file_perms;
+
+# Settings reads capabilities; only the vendor service can write the nodes.
+r_dir_file(system_app, sysfs_gpu)
+r_dir_file(system_app, sysfs_gpu_writable)
+r_dir_file(system_app, sysfs_mmc)
+r_dir_file(system_app, borealis_ksm)
+r_dir_file(system_app, borealis_usb)
+r_dir_file(system_app, borealis_tcp)
+
+# Samsung Lineage AIDL HAL service types and IPC bindings (upstream common/dynamic).
+type hal_lineage_health_service, hal_service_type, service_manager_type;
+type hal_lineage_livedisplay_service, hal_service_type, service_manager_type;
+type hal_lineage_powershare_service, hal_service_type, service_manager_type;
+type hal_lineage_touch_service, hal_service_type, service_manager_type;
+
+# HwBinder IPC from client to server
+binder_call(hal_lineage_health_client, hal_lineage_health_server)
+
+hal_attribute_service(hal_lineage_health, hal_lineage_health_service)
+
+# HwBinder IPC from client to server
+binder_call(hal_lineage_livedisplay_client, hal_lineage_livedisplay_server)
+
+hal_attribute_service(hal_lineage_livedisplay, hal_lineage_livedisplay_service)
+
+# HwBinder IPC from client to server
+binder_call(hal_lineage_touch_client, hal_lineage_touch_server)
+
+hal_attribute_service(hal_lineage_touch, hal_lineage_touch_service)
+
+# HwBinder IPC from client to server
+binder_call(hal_lineage_powershare_client, hal_lineage_powershare_server)
+
+hal_attribute_service(hal_lineage_powershare, hal_lineage_powershare_service)

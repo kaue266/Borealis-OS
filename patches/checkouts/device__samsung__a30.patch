@@ -1,0 +1,54 @@
+diff --git a/AndroidProducts.mk b/AndroidProducts.mk
+index 4e7c9bb..20d13a5 100644
+--- a/AndroidProducts.mk
++++ b/AndroidProducts.mk
+@@ -1,4 +1,2 @@
+-# Copyright (C) 2025 The LineageOS Project
+-# SPDX-License-Identifier: Apache-2.0
+-
+-PRODUCT_MAKEFILES += $(LOCAL_DIR)/lineage_a30.mk
++PRODUCT_MAKEFILES := $(LOCAL_DIR)/borealis_a30.mk
++COMMON_LUNCH_CHOICES := borealis_a30-cp2a-userdebug
+diff --git a/BoardConfig.mk b/BoardConfig.mk
+index 4ade81e..a878d31 100644
+--- a/BoardConfig.mk
++++ b/BoardConfig.mk
+@@ -28,3 +28,13 @@ TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
+ # SPL
+ VENDOR_SECURITY_PATCH := 2022-10-01
+ 
++# Borealis Android 17 bring-up: public R24U artifacts, root optional.
++TARGET_PREBUILT_KERNEL := vendor/borealis/prebuilts/kernel/Image
++TARGET_NO_KERNEL := false
++BOARD_BOOT_HEADER_VERSION := $(BOARD_BOOTIMG_HEADER_VERSION)
++BOARD_PREBUILT_DTBOIMAGE := vendor/borealis/prebuilts/kernel/dtbo.img
++BOARD_PREBUILT_DTBIMAGE := vendor/borealis/prebuilts/kernel/dtb.img
++TARGET_OTA_ASSERT_DEVICE := a30,a30dd,a30xx
++BOARD_VENDOR_SEPOLICY_DIRS += vendor/borealis/sepolicy/vendor
++SYSTEM_EXT_PUBLIC_SEPOLICY_DIRS += vendor/borealis/sepolicy/system_ext/public
++SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += vendor/borealis/sepolicy/system_ext/private
+diff --git a/device.mk b/device.mk
+index aab0319..e8523bf 100644
+--- a/device.mk
++++ b/device.mk
+@@ -15,7 +15,7 @@ TARGET_DEVICE := a30
+ TARGET_SOC := exynos7904
+ 
+ # Bootanimation
+-TARGET_SCREEN_HEIGHT := 2280
++TARGET_SCREEN_HEIGHT := 2340
+ TARGET_SCREEN_WIDTH := 1080
+ 
+ # Fingerprint
+@@ -25,10 +25,7 @@ PRODUCT_PACKAGES += \
+ PRODUCT_COPY_FILES += \
+     frameworks/native/data/etc/android.hardware.fingerprint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.fingerprint.xml
+ 
+-# FM radio
+-PRODUCT_PACKAGES += \
+-    S5E7885FMRadio \
+-    miku.dayo.hardware.fmradio-service
++# FM radio omitted from this alpha: public FM HAL source unavailable.
+ 
+ # Overlay
+ DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay

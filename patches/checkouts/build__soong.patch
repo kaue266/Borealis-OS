@@ -1,0 +1,18 @@
+diff --git a/ui/build/soong.go b/ui/build/soong.go
+index 4521b4a..cde694d 100644
+--- a/ui/build/soong.go
++++ b/ui/build/soong.go
+@@ -215,6 +215,13 @@ func (pb PrimaryBuilderFactory) primaryBuilderInvocation(config Config) bootstra
+ 
+ 	commonArgs = append(commonArgs, "-l", filepath.Join(pb.config.FileListDir(), "Android.bp.list"))
+ 	invocationEnv := make(map[string]string)
++	// Borealis build host memory bounds.
++	for _, key := range []string{"GOGC", "GOMAXPROCS", "GOMEMLIMIT"} {
++		if value, ok := config.Environment().Get(key); ok && value != "" {
++			invocationEnv[key] = value
++		}
++	}
++
+ 	if pb.debugPort != "" {
+ 		//debug mode
+ 		commonArgs = append(commonArgs, "--delve_listen", pb.debugPort,

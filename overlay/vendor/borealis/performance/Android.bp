@@ -1,0 +1,8 @@
+cc_binary {
+    name: "borealis-perf",
+    vendor: true,
+    srcs: ["main.cpp", "engine.cpp"],
+    shared_libs: ["libbase", "liblog"],
+    init_rc: ["borealis-perf.rc"],
+    cflags: ["-Wall", "-Wextra", "-Werror"],
+}

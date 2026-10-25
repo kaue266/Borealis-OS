@@ -1,0 +1,12 @@
+diff --git a/services/java/com/android/server/SystemServer.java b/services/java/com/android/server/SystemServer.java
+index 3ea580823..9d5d51f52 100644
+--- a/services/java/com/android/server/SystemServer.java
++++ b/services/java/com/android/server/SystemServer.java
+@@ -2477,6 +2477,7 @@ public final class SystemServer implements Dumpable {
+             t.traceBegin("StartAudioService");
+             if (!isArc) {
+                 mSystemServiceManager.startService(AudioService.Lifecycle.class);
++                mSystemServiceManager.startService(com.android.server.borealis.BorealisAudioService.class);
+             } else {
+                 String className = context.getResources()
+                         .getString(R.string.config_deviceSpecificAudioService);

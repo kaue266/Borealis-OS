@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='utf-8'?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:background="@color/borealis_background">
+  <androidx.recyclerview.widget.RecyclerView android:id="@android:id/list" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingTop="12dp" android:clipToPadding="false" android:listSelector="?android:attr/listSelector" android:dividerHeight="0px" android:paddingBottom="96dp" />
+  <include layout="@layout/list_empty_view" android:id="@+id/no_conversations_view" android:visibility="gone" android:layout_marginBottom="@dimen/conversation_list_empty_text_bottom_margin" />
+  <ImageView style="@style/ConversationListFragmentStartNewButtonStyle" android:id="@+id/start_new_conversation_button" android:layout_width="64dp" android:layout_height="64dp" android:layout_gravity="bottom|end" android:layout_marginBottom="20dp" android:paddingBottom="0dp" android:background="@drawable/borealis_message_fab" android:elevation="2dp" android:scaleType="center" android:src="@drawable/ic_add_white" android:stateListAnimator="@animator/fab_anim" android:contentDescription="@string/start_new_conversation" android:layout_marginEnd="20dp" android:tint="@color/borealis_on_accent" />
+</FrameLayout>

@@ -1,0 +1,135 @@
+diff --git a/build/tasks/dtbimage.mk b/build/tasks/dtbimage.mk
+index 7534780..64e9c1a 100644
+--- a/build/tasks/dtbimage.mk
++++ b/build/tasks/dtbimage.mk
+@@ -4,6 +4,11 @@
+ #
+ 
+ ifneq ($(filter exynos7884B exynos7904,$(TARGET_SOC)),)
++ifdef BOARD_PREBUILT_DTBIMAGE
++# The inspected A30 DTB is installed by releasetools/Android.mk's add-radio-file.
++# Keep a single producer; do not build from the unused legacy KERNEL_OBJ tree.
++INSTALLED_DTBIMAGE_TARGET := $(PRODUCT_OUT)/dtb.img
++else
+ MKDTBOIMG  := $(HOST_OUT_EXECUTABLES)/mkdtboimg$(HOST_EXECUTABLE_SUFFIX)
+ KERNEL_OUT := $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ
+ DTB_DIR    := $(KERNEL_OUT)/arch/$(KERNEL_ARCH)/boot/dts/exynos
+@@ -16,6 +21,8 @@ $(INSTALLED_DTBIMAGE_TARGET): $(PRODUCT_OUT)/kernel $(MKDTBOIMG)
+ 	$(hide) $(MKDTBOIMG) cfg_create $@ $(DTB_CFG) -d $(DTB_DIR)
+ 	$(hide) $(call assert-max-image-size,$@,$(BOARD_DTBIMG_PARTITION_SIZE),raw)
+ 
++endif # BOARD_PREBUILT_DTBIMAGE
++
+ .PHONY: dtbimage
+ dtbimage: $(INSTALLED_DTBIMAGE_TARGET)
+ 
+diff --git a/exynos7885-common.mk b/exynos7885-common.mk
+index 04b5d8a..2e5ce16 100644
+--- a/exynos7885-common.mk
++++ b/exynos7885-common.mk
+@@ -13,7 +13,7 @@ $(call inherit-product, hardware/samsung-ext/interfaces/debug-tools/debug.mk)
+ $(call inherit-product, hardware/samsung_slsi-linaro/config/config.mk)
+ 
+ # Enable casefolding
+-$(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
++# Keep AOSP storage defaults; do not require unimplemented casefold support.
+ 
+ # OTA
+ AB_OTA_UPDATER := false
+@@ -21,8 +21,7 @@ AB_OTA_UPDATER := false
+ # Audio
+ TARGET_EXCLUDES_AUDIOFX := true
+ 
+-# GMS
+-TARGET_USES_MINI_GAPPS := true
++# Borealis does not include Google services.
+ 
+ # IMS over Wi-Fi data service and network qualification service.
+ # These are also useful for VoLTE-only bring-up because the telephony
+@@ -170,8 +169,7 @@ PRODUCT_COPY_FILES += \
+ 
+ # Overlays
+ DEVICE_PACKAGE_OVERLAYS += \
+-    $(LOCAL_PATH)/overlay \
+-    $(LOCAL_PATH)/overlay-lineage
++    $(LOCAL_PATH)/overlay
+ 
+ # Permissions
+ PRODUCT_COPY_FILES += \
+diff --git a/init/init_exynos7885.cpp b/init/init_exynos7885.cpp
+index 7d00a01..8f57294 100644
+--- a/init/init_exynos7885.cpp
++++ b/init/init_exynos7885.cpp
+@@ -36,7 +36,7 @@
+ #include <android-base/properties.h>
+ 
+ #include "property_service.h"
+-#include "vendor_init.h"
++#include <cstring>
+ 
+ using android::base::GetProperty;
+ 
+@@ -89,6 +89,7 @@ void vendor_load_properties() {
+   if (model.empty()) {
+     model = GetProperty("ro.boot.em.model", "");
+   }
++  if (model.empty()) model = GetProperty("ro.product.model", "SM-A305GT");
+   bool isNFC = false;
+ 
+   // Korean models all have NFC
+diff --git a/releasetools/releasetools.py b/releasetools/releasetools.py
+index ed2094a..3a00039 100644
+--- a/releasetools/releasetools.py
++++ b/releasetools/releasetools.py
+@@ -1,44 +1,12 @@
+-#!/bin/env python3
+-#
+-# Copyright (C) 2021 The LineageOS Open Source Project
+-#
+-# Licensed under the Apache License, Version 2.0 (the "License");
+-# you may not use this file except in compliance with the License.
+-# You may obtain a copy of the License at
+-#
+-#      http://www.apache.org/licenses/LICENSE-2.0
+-#
+-# Unless required by applicable law or agreed to in writing, software
+-# distributed under the License is distributed on an "AS IS" BASIS,
+-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+-# See the License for the specific language governing permissions and
+-# limitations under the License.
+-
++# SPDX-License-Identifier: Apache-2.0
+ import common
+-import re
+ 
+ def FullOTA_InstallEnd(info):
+-  OTA_InstallEnd(info)
+-  return
++    for directory, name in (("RADIO", "dtb.img"), ("IMAGES", "dtbo.img")):
++        data = info.input_zip.read(directory + "/" + name)
++        common.ZipWriteStr(info.output_zip, name, data)
++        partition = name.removesuffix(".img")
++        info.script.AppendExtra('package_extract_file("%s", "/dev/block/by-name/%s");' % (name, partition))
+ 
+ def IncrementalOTA_InstallEnd(info):
+-  info.input_zip = info.target_zip
+-  OTA_InstallEnd(info)
+-  return
+-
+-def AddImage(info, dir, basename, dest):
+-  data = info.input_zip.read(dir + "/" + basename)
+-  common.ZipWriteStr(info.output_zip, basename, data)
+-
+-  info.script.Print("Patching {} image unconditionally...".format(dest.split('/')[-1]))
+-  info.script.AppendExtra('package_extract_file("%s", "%s");' % (basename, dest))
+-
+-def AddFlash(info, basename, dest):
+-  info.script.Print("Patching {} image unconditionally...".format(dest.split('/')[-1]))
+-  info.script.AppendExtra('package_extract_file("%s", "%s");' % (basename, dest))
+-
+-def OTA_InstallEnd(info):
+-  AddImage(info, "RADIO", "dtb.img", "/dev/block/by-name/dtb")
+-  AddImage(info, "IMAGES", "dtbo.img", "/dev/block/by-name/dtbo")
+-  AddFlash(info, "recovery.img", "/dev/block/by-name/recovery")
+-  return
++    raise RuntimeError("Borealis alpha requires a full OTA; device migration unverified")

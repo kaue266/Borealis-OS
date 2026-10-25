@@ -1,0 +1,13 @@
+diff --git a/updater/updater_main.cpp b/updater/updater_main.cpp
+index 33d5b5b..62de9ac 100644
+--- a/updater/updater_main.cpp
++++ b/updater/updater_main.cpp
+@@ -20,6 +20,8 @@
+ 
+ #include <string>
+ 
++#include "borealis_recovery_random.h"
++
+ #include <android-base/logging.h>
+ #include <android-base/parseint.h>
+ #include <openssl/crypto.h>

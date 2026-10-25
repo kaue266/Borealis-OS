@@ -1,0 +1,2 @@
+/vendor/bin/borealis-perf u:object_r:borealis_perf_exec:s0
+/data/vendor/borealis(/.*)? u:object_r:borealis_perf_data_file:s0
