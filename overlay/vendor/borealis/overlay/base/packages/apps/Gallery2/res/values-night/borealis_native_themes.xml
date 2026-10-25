@@ -1,0 +1,126 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+  <style name="Theme.GalleryBase" parent="android:Theme.Holo">
+    <item name="listPreferredItemHeightSmall">48dp</item>
+    <item name="switchStyle">@android:style/Widget.CompoundButton</item>
+    <item name="android:windowBackground">@color/borealis_background</item>
+    <item name="android:colorBackground">@color/borealis_background</item>
+    <item name="android:colorAccent">@color/borealis_accent</item>
+    <item name="android:textColorPrimary">@color/borealis_text</item>
+    <item name="android:textColorSecondary">@color/borealis_muted</item>
+    <item name="android:colorControlActivated">@color/borealis_accent</item>
+    <item name="android:colorControlNormal">@color/borealis_muted</item>
+    <item name="android:dialogCornerRadius">28dp</item>
+    <item name="android:navigationBarColor">@color/borealis_background</item>
+    <item name="android:statusBarColor">@color/borealis_background</item>
+    <item name="android:windowLightStatusBar">false</item>
+    <item name="android:windowLightNavigationBar">false</item>
+  </style>
+  <style name="Theme.Gallery.Dialog" parent="android:Theme.Holo.Dialog">
+    <item name="android:windowBackground">@color/borealis_background</item>
+    <item name="android:colorBackground">@color/borealis_background</item>
+    <item name="android:colorAccent">@color/borealis_accent</item>
+    <item name="android:textColorPrimary">@color/borealis_text</item>
+    <item name="android:textColorSecondary">@color/borealis_muted</item>
+    <item name="android:colorControlActivated">@color/borealis_accent</item>
+    <item name="android:colorControlNormal">@color/borealis_muted</item>
+    <item name="android:dialogCornerRadius">28dp</item>
+    <item name="android:navigationBarColor">@color/borealis_background</item>
+    <item name="android:statusBarColor">@color/borealis_background</item>
+    <item name="android:windowLightStatusBar">false</item>
+    <item name="android:windowLightNavigationBar">false</item>
+  </style>
+  <style name="Theme.Gallery" parent="Theme.GalleryBase">
+    <item name="android:displayOptions" />
+    <item name="android:windowContentOverlay">@null</item>
+    <item name="android:actionBarStyle">@style/Holo.ActionBar</item>
+    <item name="android:windowBackground">@color/borealis_background</item>
+    <item name="android:colorBackground">@color/borealis_background</item>
+    <item name="android:colorBackgroundCacheHint">@null</item>
+    <item name="android:colorAccent">@color/borealis_accent</item>
+    <item name="android:textColorPrimary">@color/borealis_text</item>
+    <item name="android:textColorSecondary">@color/borealis_muted</item>
+    <item name="android:colorControlActivated">@color/borealis_accent</item>
+    <item name="android:colorControlNormal">@color/borealis_muted</item>
+    <item name="android:dialogCornerRadius">28dp</item>
+    <item name="android:navigationBarColor">@color/borealis_background</item>
+    <item name="android:statusBarColor">@color/borealis_background</item>
+    <item name="android:windowLightStatusBar">false</item>
+    <item name="android:windowLightNavigationBar">false</item>
+  </style>
+  <style name="Theme.FilterShow" parent="Theme.Gallery">
+    <item name="android:windowBackground">@color/borealis_background</item>
+    <item name="android:colorBackground">@color/borealis_background</item>
+    <item name="android:colorAccent">@color/borealis_accent</item>
+    <item name="android:textColorPrimary">@color/borealis_text</item>
+    <item name="android:textColorSecondary">@color/borealis_muted</item>
+    <item name="android:colorControlActivated">@color/borealis_accent</item>
+    <item name="android:colorControlNormal">@color/borealis_muted</item>
+    <item name="android:dialogCornerRadius">28dp</item>
+    <item name="android:navigationBarColor">@color/borealis_background</item>
+    <item name="android:statusBarColor">@color/borealis_background</item>
+    <item name="android:windowLightStatusBar">false</item>
+    <item name="android:windowLightNavigationBar">false</item>
+  </style>
+  <style name="Theme.Crop" parent="Theme.GalleryBase">
+    <item name="android:displayOptions" />
+    <item name="android:windowContentOverlay">@null</item>
+    <item name="android:actionBarStyle">@style/Holo.ActionBar</item>
+    <item name="android:colorBackground">@color/borealis_background</item>
+    <item name="android:colorBackgroundCacheHint">@null</item>
+    <item name="android:windowBackground">@color/borealis_background</item>
+    <item name="android:colorAccent">@color/borealis_accent</item>
+    <item name="android:textColorPrimary">@color/borealis_text</item>
+    <item name="android:textColorSecondary">@color/borealis_muted</item>
+    <item name="android:colorControlActivated">@color/borealis_accent</item>
+    <item name="android:colorControlNormal">@color/borealis_muted</item>
+    <item name="android:dialogCornerRadius">28dp</item>
+    <item name="android:navigationBarColor">@color/borealis_background</item>
+    <item name="android:statusBarColor">@color/borealis_background</item>
+    <item name="android:windowLightStatusBar">false</item>
+    <item name="android:windowLightNavigationBar">false</item>
+  </style>
+  <style name="Theme.ProxyLauncher" parent="@android:Theme.Translucent.NoTitleBar">
+    <item name="android:windowBackground">@color/borealis_background</item>
+    <item name="android:colorBackground">@color/borealis_background</item>
+    <item name="android:colorAccent">@color/borealis_accent</item>
+    <item name="android:textColorPrimary">@color/borealis_text</item>
+    <item name="android:textColorSecondary">@color/borealis_muted</item>
+    <item name="android:colorControlActivated">@color/borealis_accent</item>
+    <item name="android:colorControlNormal">@color/borealis_muted</item>
+    <item name="android:dialogCornerRadius">28dp</item>
+    <item name="android:navigationBarColor">@color/borealis_background</item>
+    <item name="android:statusBarColor">@color/borealis_background</item>
+    <item name="android:windowLightStatusBar">false</item>
+    <item name="android:windowLightNavigationBar">false</item>
+  </style>
+  <style name="Theme.Camera" parent="Theme.CameraBase">
+    <item name="android:windowBackground">@color/borealis_background</item>
+    <item name="android:colorBackground">@color/borealis_background</item>
+    <item name="android:colorBackgroundCacheHint">@android:color/black</item>
+    <item name="android:colorAccent">@color/borealis_accent</item>
+    <item name="android:textColorPrimary">@color/borealis_text</item>
+    <item name="android:textColorSecondary">@color/borealis_muted</item>
+    <item name="android:colorControlActivated">@color/borealis_accent</item>
+    <item name="android:colorControlNormal">@color/borealis_muted</item>
+    <item name="android:dialogCornerRadius">28dp</item>
+    <item name="android:navigationBarColor">@color/borealis_background</item>
+    <item name="android:statusBarColor">@color/borealis_background</item>
+    <item name="android:windowLightStatusBar">false</item>
+    <item name="android:windowLightNavigationBar">false</item>
+  </style>
+  <style name="Theme.CameraBase" parent="android:Theme.Black.NoTitleBar.Fullscreen">
+    <item name="android:windowBackground">@color/borealis_background</item>
+    <item name="android:colorBackground">@color/borealis_background</item>
+    <item name="android:colorAccent">@color/borealis_accent</item>
+    <item name="android:textColorPrimary">@color/borealis_text</item>
+    <item name="android:textColorSecondary">@color/borealis_muted</item>
+    <item name="android:colorControlActivated">@color/borealis_accent</item>
+    <item name="android:colorControlNormal">@color/borealis_muted</item>
+    <item name="android:dialogCornerRadius">28dp</item>
+    <item name="android:navigationBarColor">@color/borealis_background</item>
+    <item name="android:statusBarColor">@color/borealis_background</item>
+    <item name="android:windowLightStatusBar">false</item>
+    <item name="android:windowLightNavigationBar">false</item>
+  </style>
+</resources>

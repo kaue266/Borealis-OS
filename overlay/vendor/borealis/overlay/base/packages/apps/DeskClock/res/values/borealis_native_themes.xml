@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources xmlns:ns0="http://schemas.android.com/tools">
+  <style name="Theme.DeskClock" parent="Theme.AppCompat.NoActionBar">
+    <item name="android:colorBackgroundFloating" ns0:targetApi="23">
+            ?attr/colorBackgroundFloating
+        </item>
+    <item name="android:navigationBarColor" ns0:targetApi="21">@color/borealis_background</item>
+    <item name="android:popupTheme" ns0:targetApi="21">?attr/popupTheme</item>
+    <item name="android:timePickerStyle" ns0:targetApi="21">@style/Widget.TimePicker</item>
+    <item name="android:windowBackground">@color/borealis_background</item>
+    <item name="android:windowContentOverlay">@null</item>
+    <item name="colorAccent">@color/borealis_accent</item>
+    <item name="colorBackgroundFloating">@color/borealis_surface</item>
+    <item name="colorControlActivated">@android:color/white</item>
+    <item name="colorControlNormal">?android:attr/textColorPrimary</item>
+    <item name="colorPrimaryDark">@color/borealis_background</item>
+    <item name="imageButtonStyle">@style/Widget.ImageButton</item>
+    <item name="popupTheme">@style/ThemeOverlay.Popup</item>
+    <item name="android:colorBackground">@color/borealis_background</item>
+    <item name="android:colorAccent">@color/borealis_accent</item>
+    <item name="android:textColorPrimary">@color/borealis_text</item>
+    <item name="android:textColorSecondary">@color/borealis_muted</item>
+    <item name="android:colorControlActivated">@color/borealis_accent</item>
+    <item name="android:colorControlNormal">@color/borealis_muted</item>
+    <item name="android:dialogCornerRadius">28dp</item>
+    <item name="android:statusBarColor">@color/borealis_background</item>
+    <item name="android:windowLightStatusBar">true</item>
+    <item name="android:windowLightNavigationBar">true</item>
+  </style>
+  <style name="Theme.DeskClock.Settings">
+    <item name="actionBarStyle">@style/Widget.ActionBar</item>
+    <item name="colorControlActivated">?attr/colorAccent</item>
+    <item name="windowActionBar">true</item>
+    <item name="windowNoTitle">false</item>
+    <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>
+    <item name="android:windowBackground">@color/borealis_background</item>
+    <item name="android:colorBackground">@color/borealis_background</item>
+    <item name="android:colorAccent">@color/borealis_accent</item>
+    <item name="android:textColorPrimary">@color/borealis_text</item>
+    <item name="android:textColorSecondary">@color/borealis_muted</item>
+    <item name="android:colorControlActivated">@color/borealis_accent</item>
+    <item name="android:colorControlNormal">@color/borealis_muted</item>
+    <item name="android:dialogCornerRadius">28dp</item>
+    <item name="android:navigationBarColor">@color/borealis_background</item>
+    <item name="android:statusBarColor">@color/borealis_background</item>
+    <item name="android:windowLightStatusBar">true</item>
+    <item name="android:windowLightNavigationBar">true</item>
+  </style>
+  <style name="Theme.DeskClock.RingtonePicker">
+    <item name="actionBarStyle">@style/Widget.ActionBar</item>
+    <item name="windowActionBar">true</item>
+    <item name="windowNoTitle">false</item>
+    <item name="android:windowBackground">@color/borealis_background</item>
+    <item name="android:colorBackground">@color/borealis_background</item>
+    <item name="android:colorAccent">@color/borealis_accent</item>
+    <item name="android:textColorPrimary">@color/borealis_text</item>
+    <item name="android:textColorSecondary">@color/borealis_muted</item>
+    <item name="android:colorControlActivated">@color/borealis_accent</item>
+    <item name="android:colorControlNormal">@color/borealis_muted</item>
+    <item name="android:dialogCornerRadius">28dp</item>
+    <item name="android:navigationBarColor">@color/borealis_background</item>
+    <item name="android:statusBarColor">@color/borealis_background</item>
+    <item name="android:windowLightStatusBar">true</item>
+    <item name="android:windowLightNavigationBar">true</item>
+  </style>
+  <style name="Theme.DeskClock.CitySelection">
+    <item name="actionBarStyle">@style/Widget.ActionBar.NoTitle</item>
+    <item name="windowActionBar">true</item>
+    <item name="windowNoTitle">false</item>
+    <item name="android:windowBackground">@color/borealis_background</item>
+    <item name="android:colorBackground">@color/borealis_background</item>
+    <item name="android:colorAccent">@color/borealis_accent</item>
+    <item name="android:textColorPrimary">@color/borealis_text</item>
+    <item name="android:textColorSecondary">@color/borealis_muted</item>
+    <item name="android:colorControlActivated">@color/borealis_accent</item>
+    <item name="android:colorControlNormal">@color/borealis_muted</item>
+    <item name="android:dialogCornerRadius">28dp</item>
+    <item name="android:navigationBarColor">@color/borealis_background</item>
+    <item name="android:statusBarColor">@color/borealis_background</item>
+    <item name="android:windowLightStatusBar">true</item>
+    <item name="android:windowLightNavigationBar">true</item>
+  </style>
+  <style name="ThemeOverlay.Control.Accent" parent="ThemeOverlay.AppCompat">
+    <item name="colorControlActivated">?attr/colorAccent</item>
+    <item name="android:colorAccent">@color/borealis_accent</item>
+    <item name="android:textColorPrimary">@color/borealis_text</item>
+    <item name="android:textColorSecondary">@color/borealis_muted</item>
+    <item name="android:colorControlActivated">@color/borealis_accent</item>
+    <item name="android:colorControlNormal">@color/borealis_muted</item>
+    <item name="android:dialogCornerRadius">28dp</item>
+  </style>
+  <style name="ThemeOverlay.Popup" parent="ThemeOverlay.AppCompat">
+    <item name="android:colorBackground">?attr/colorBackgroundFloating</item>
+    <item name="android:colorAccent">@color/borealis_accent</item>
+    <item name="android:textColorPrimary">@color/borealis_text</item>
+    <item name="android:textColorSecondary">@color/borealis_muted</item>
+    <item name="android:colorControlActivated">@color/borealis_accent</item>
+    <item name="android:colorControlNormal">@color/borealis_muted</item>
+    <item name="android:dialogCornerRadius">28dp</item>
+  </style>
+</resources>

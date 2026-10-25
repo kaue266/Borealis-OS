@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+  <color name="borealis_background">#F7F5FC</color>
+  <color name="borealis_surface">#FFFFFF</color>
+  <color name="borealis_text">#171728</color>
+  <color name="borealis_muted">#555C70</color>
+  <color name="borealis_accent">#65469B</color>
+  <color name="borealis_aurora">#176556</color>
+  <color name="borealis_outline">#DEDCE9</color>
+  <color name="borealis_on_accent">#FFFFFF</color>
+  <color name="borealis_dark_background">#090D15</color>
+  <color name="borealis_dark_surface">#171D2B</color>
+  <color name="borealis_dark_text">#F2F3FF</color>
+  <color name="borealis_dark_muted">#AFB9CD</color>
+  <color name="borealis_dark_accent">#C5B4FF</color>
+  <color name="borealis_dark_aurora">#8BE8D0</color>
+  <color name="borealis_dark_outline">#313B50</color>
+  <color name="borealis_dark_on_accent">#261C3F</color>
+  <color name="popup_color_primary_light">#FFFFFF</color>
+  <color name="popup_color_primary_dark">#171D2B</color>
+  <color name="popup_text_color_light">#171728</color>
+  <color name="popup_text_color_dark">#F2F3FF</color>
+  <color name="folder_background_light">#FFFFFF</color>
+  <color name="folder_background_dark">#171D2B</color>
+  <color name="folder_text_color_light">#171728</color>
+  <color name="folder_text_color_dark">#F2F3FF</color>
+  <color name="folder_hint_text_color_light">#555C70</color>
+  <color name="folder_hint_text_color_dark">#AFB9CD</color>
+  <color name="workspace_accent_color_light">#65469B</color>
+  <color name="workspace_accent_color_dark">#C5B4FF</color>
+</resources>

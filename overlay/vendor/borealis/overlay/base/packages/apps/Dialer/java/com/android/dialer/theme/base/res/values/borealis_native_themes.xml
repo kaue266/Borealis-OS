@@ -1,0 +1,107 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+  <style name="Theme.PreCall.DialogHolder" parent="Dialer.ThemeBase.NoActionBar">
+    <item name="android:windowBackground">@color/borealis_background</item>
+    <item name="android:windowActivityTransitions">false</item>
+    <item name="android:windowIsTranslucent">true</item>
+    <item name="android:statusBarColor">@color/borealis_background</item>
+    <item name="android:navigationBarColor">@color/borealis_background</item>
+    <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+    <item name="android:colorBackground">@color/borealis_background</item>
+    <item name="android:colorAccent">@color/borealis_accent</item>
+    <item name="android:textColorPrimary">@color/borealis_text</item>
+    <item name="android:textColorSecondary">@color/borealis_muted</item>
+    <item name="android:colorControlActivated">@color/borealis_accent</item>
+    <item name="android:colorControlNormal">@color/borealis_muted</item>
+    <item name="android:dialogCornerRadius">28dp</item>
+    <item name="android:windowLightStatusBar">true</item>
+    <item name="android:windowLightNavigationBar">true</item>
+  </style>
+  <style name="Dialer.ThemeBase.ActionBar">
+    <item name="actionBarStyle">@style/DialerActionBarBaseStyle</item>
+    <item name="actionBarSize">@dimen/action_bar_height</item>
+    <item name="actionBarPopupTheme">@style/ThemeOverlay.AppCompat.Light</item>
+    <item name="actionBarWidgetTheme">@null</item>
+    <item name="actionBarTheme">@style/DialerActionBarBaseTheme</item>
+    <item name="listChoiceBackgroundIndicator">@drawable/abc_list_selector_holo_dark</item>
+    <item name="android:windowBackground">@color/borealis_background</item>
+    <item name="android:colorBackground">@color/borealis_background</item>
+    <item name="android:colorAccent">@color/borealis_accent</item>
+    <item name="android:textColorPrimary">@color/borealis_text</item>
+    <item name="android:textColorSecondary">@color/borealis_muted</item>
+    <item name="android:colorControlActivated">@color/borealis_accent</item>
+    <item name="android:colorControlNormal">@color/borealis_muted</item>
+    <item name="android:dialogCornerRadius">28dp</item>
+    <item name="android:navigationBarColor">@color/borealis_background</item>
+    <item name="android:statusBarColor">@color/borealis_background</item>
+    <item name="android:windowLightStatusBar">true</item>
+    <item name="android:windowLightNavigationBar">true</item>
+  </style>
+  <style name="Dialer.ThemeBase.NoActionBar">
+    <item name="windowActionBar">false</item>
+    <item name="windowNoTitle">true</item>
+    <item name="android:windowBackground">@color/borealis_background</item>
+    <item name="android:colorBackground">@color/borealis_background</item>
+    <item name="android:colorAccent">@color/borealis_accent</item>
+    <item name="android:textColorPrimary">@color/borealis_text</item>
+    <item name="android:textColorSecondary">@color/borealis_muted</item>
+    <item name="android:colorControlActivated">@color/borealis_accent</item>
+    <item name="android:colorControlNormal">@color/borealis_muted</item>
+    <item name="android:dialogCornerRadius">28dp</item>
+    <item name="android:navigationBarColor">@color/borealis_background</item>
+    <item name="android:statusBarColor">@color/borealis_background</item>
+    <item name="android:windowLightStatusBar">true</item>
+    <item name="android:windowLightNavigationBar">true</item>
+  </style>
+  <style name="Dialer.ThemeBase">
+    <item name="android:colorBackground">@color/borealis_background</item>
+    <item name="android:colorBackgroundFloating">@android:color/white</item>
+    <item name="android:textColorPrimary">@color/borealis_text</item>
+    <item name="android:textColorSecondary">@color/borealis_muted</item>
+    <item name="android:textColorPrimaryInverse">@color/google_grey_300</item>
+    <item name="android:textColorSecondaryInverse">@color/google_grey_400</item>
+    <item name="android:textColorHint">@color/google_grey_600</item>
+    <item name="android:colorPrimary">@color/dialer_theme_color</item>
+    <item name="colorPrimary">@color/borealis_accent</item>
+    <item name="android:colorPrimaryDark">@color/dialer_theme_color_dark</item>
+    <item name="colorPrimaryDark">@color/borealis_background</item>
+    <item name="android:colorAccent">@color/borealis_accent</item>
+    <item name="colorAccent">@color/borealis_accent</item>
+    <item name="colorControlActivated">?android:attr/colorPrimary</item>
+    <item name="colorIcon">@color/google_grey_700</item>
+    <item name="colorIconSecondary">@color/google_grey_400</item>
+    <item name="colorTextOnUnthemedDarkBackground">@android:color/white</item>
+    <item name="colorIconOnUnthemedDarkBackground">@android:color/white</item>
+    <item name="colorMobileTerminatingChatText">@color/google_grey_900</item>
+    <item name="colorMobileTerminatingChatBackground">@color/google_grey_100</item>
+    <item name="colorMobileOriginatingChatText">@color/google_blue_900</item>
+    <item name="colorMobileOriginatingChatBackground">@color/google_blue_100</item>
+    <item name="colorPrimary20pct">@color/dialer_theme_color_20pct</item>
+    <item name="android:windowBackground">@color/borealis_background</item>
+    <item name="android:colorControlActivated">@color/borealis_accent</item>
+    <item name="android:colorControlNormal">@color/borealis_muted</item>
+    <item name="android:dialogCornerRadius">28dp</item>
+    <item name="android:navigationBarColor">@color/borealis_background</item>
+    <item name="android:statusBarColor">@color/borealis_background</item>
+    <item name="android:windowLightStatusBar">true</item>
+    <item name="android:windowLightNavigationBar">true</item>
+  </style>
+  <style name="Theme.AppCompat.Translucent" parent="Theme.AppCompat.NoActionBar">
+    <item name="android:windowNoTitle">true</item>
+    <item name="android:windowBackground">@color/borealis_background</item>
+    <item name="android:colorBackgroundCacheHint">@null</item>
+    <item name="android:windowIsTranslucent">true</item>
+    <item name="android:windowAnimationStyle">@android:style/Animation</item>
+    <item name="android:colorBackground">@color/borealis_background</item>
+    <item name="android:colorAccent">@color/borealis_accent</item>
+    <item name="android:textColorPrimary">@color/borealis_text</item>
+    <item name="android:textColorSecondary">@color/borealis_muted</item>
+    <item name="android:colorControlActivated">@color/borealis_accent</item>
+    <item name="android:colorControlNormal">@color/borealis_muted</item>
+    <item name="android:dialogCornerRadius">28dp</item>
+    <item name="android:navigationBarColor">@color/borealis_background</item>
+    <item name="android:statusBarColor">@color/borealis_background</item>
+    <item name="android:windowLightStatusBar">true</item>
+    <item name="android:windowLightNavigationBar">true</item>
+  </style>
+</resources>

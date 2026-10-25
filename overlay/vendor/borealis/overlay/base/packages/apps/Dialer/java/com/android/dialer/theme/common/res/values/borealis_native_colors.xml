@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+  <color name="borealis_background">#F7F5FC</color>
+  <color name="borealis_surface">#FFFFFF</color>
+  <color name="borealis_text">#171728</color>
+  <color name="borealis_muted">#555C70</color>
+  <color name="borealis_accent">#65469B</color>
+  <color name="borealis_aurora">#176556</color>
+  <color name="borealis_outline">#DEDCE9</color>
+  <color name="borealis_on_accent">#FFFFFF</color>
+  <color name="borealis_dark_background">#090D15</color>
+  <color name="borealis_dark_surface">#171D2B</color>
+  <color name="borealis_dark_text">#F2F3FF</color>
+  <color name="borealis_dark_muted">#AFB9CD</color>
+  <color name="borealis_dark_accent">#C5B4FF</color>
+  <color name="borealis_dark_aurora">#8BE8D0</color>
+  <color name="borealis_dark_outline">#313B50</color>
+  <color name="borealis_dark_on_accent">#261C3F</color>
+  <color name="dialer_call_green">#176556</color>
+  <color name="dialer_divider_line_color">#DEDCE9</color>
+  <color name="dialer_link_color">#65469B</color>
+  <color name="dialer_snackbar_action_text_color">#65469B</color>
+</resources>
