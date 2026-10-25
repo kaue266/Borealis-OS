@@ -1,0 +1,3 @@
+// Legacy vendor clients use the platform libhidltransport vendor variant.
+// system/libhidl/Android.bp already defines that deprecated compatibility library.
+// A second module with the same stem creates duplicate vendor install rules.

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="borealis_graphics">Borealis Graphics · Laboratório</string>
+    <string name="borealis_graphics_mode">Reconstrução espacial</string>
+    <string name="borealis_graphics_easu">EASU · reconstrução espacial</string>
+    <string name="borealis_graphics_rcas">RCAS · nitidez independente</string>
+    <string name="borealis_graphics_rcas_note">Processamento adicional opcional, independente de EASU e interpolação. Intensidade zero ignora o filtro. O intervalo matemático é limitado a 100% para evitar instabilidade; aumentar nitidez não melhora desempenho.</string>
+    <string name="borealis_graphics_mode_note">Reduz e reconstrói apenas composições já feitas pela GPU. Preserva a composição do hardware quando disponível. Escala de 25% usa 1/16 dos pixels na entrada, com perda forte de detalhe; a reconstrução ainda processa a saída inteira. A resolução interna dos aplicativos permanece independente.</string>
+    <string name="borealis_graphics_off">Desativado</string>
+    <string name="borealis_graphics_scale">Escala da composição</string>
+    <string name="borealis_graphics_sharpness">Intensidade do RCAS</string>
+    <string name="borealis_graphics_fg">Gerar quadros por fluxo óptico</string>
+    <string name="borealis_graphics_fg_note">Experimental para fontes abaixo de 40 FPS em tela de 60 Hz. Acrescenta uma apresentação intermediária e atraso; pode aumentar consumo e causar artefatos. Não é AMD FSR 3.</string>
+    <string name="borealis_graphics_reload">Recarregar pacote de shaders</string>
+    <string name="borealis_graphics_reload_note">Carrega um pacote de teste previamente instalado pelo desenvolvedor. Um pacote inválido conserva os shaders anteriores.</string>
+    <string name="borealis_graphics_reset">Desativar e restaurar shaders originais</string>
+    <string name="borealis_graphics_status">Estado do compositor</string>
+    <string name="borealis_graphics_temporal_note">Exigem dados do motor gráfico, como profundidade e vetores de movimento. Não disponíveis globalmente no compositor desta ROM.</string>
+    <string name="borealis_graphics_fsr_active">FSR 1 ativo na composição compatível</string>
+    <string name="borealis_graphics_rcas_active">RCAS ativo na composição compatível</string>
+    <string name="borealis_graphics_fg_active">Interpolação habilitada; geração depende da cadência da fonte</string>
+    <string name="borealis_graphics_bypassed">Processamento suspenso para este conteúdo ou saída</string>
+    <string name="borealis_graphics_hwc_bypassed">Efeito suspenso: a composição do hardware foi preservada para evitar trabalho extra da GPU</string>
+    <string name="borealis_graphics_failed">Falha no efeito ou pacote rejeitado; verifique o log do compositor</string>
+    <string name="borealis_graphics_experimental">Testar efeitos gráficos</string>
+    <string name="borealis_graphics_warning">Os efeitos usam GPU e memória adicionais. Não há garantia de mais FPS ou autonomia. Conteúdo protegido, HDR e capturas seguem o caminho normal. Os efeitos são desativados ao reiniciar.</string>
+</resources>

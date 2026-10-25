@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:orientation="vertical" android:padding="20dp">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical" android:padding="24dp" android:background="@drawable/borealis_header_background">
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="@string/borealis_v2_edition" android:textColor="#8BE8D0"
+            android:textSize="12sp" android:letterSpacing="0.12" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="12dp" android:text="@string/borealis_v2_title"
+            android:textSize="28sp" android:textColor="#F2F3FF" android:fontFamily="@font/borealis_orbit" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="8dp" android:text="@string/borealis_v2_subtitle"
+            android:textSize="14sp" android:textColor="#CCD3E2" />
+    </LinearLayout>
+</LinearLayout>

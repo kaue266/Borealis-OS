@@ -1,0 +1,10 @@
+<resources>
+    <color name="borealis_background">#090D15</color>
+    <color name="borealis_surface">#171D2B</color>
+    <color name="borealis_text">#F2F3FF</color>
+    <color name="borealis_muted">#AFB9CD</color>
+    <color name="borealis_accent">#C5B4FF</color>
+    <color name="borealis_aurora">#8BE8D0</color>
+    <color name="borealis_outline">#313B50</color>
+    <color name="borealis_on_accent">#261C3F</color>
+</resources>

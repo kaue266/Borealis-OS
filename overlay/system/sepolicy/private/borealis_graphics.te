@@ -1,0 +1,16 @@
+# SPDX-License-Identifier: Apache-2.0
+system_internal_prop(borealis_graphics_config_prop)
+system_internal_prop(borealis_graphics_status_prop)
+type borealis_graphics_data_file, file_type, data_file_type, core_data_file_type;
+set_prop(system_app, borealis_graphics_config_prop)
+get_prop(system_app, borealis_graphics_status_prop)
+get_prop(surfaceflinger, borealis_graphics_config_prop)
+set_prop(surfaceflinger, borealis_graphics_status_prop)
+r_dir_file(surfaceflinger, borealis_graphics_data_file)
+# Shader installation is for development builds, with adb root required by DAC.
+userdebug_or_eng(`
+    set_prop(shell, borealis_graphics_config_prop)
+    get_prop(shell, borealis_graphics_status_prop)
+    allow shell borealis_graphics_data_file:dir create_dir_perms;
+    allow shell borealis_graphics_data_file:file create_file_perms;
+')
