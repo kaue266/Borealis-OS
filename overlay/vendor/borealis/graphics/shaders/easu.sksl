@@ -1,0 +1,61 @@
+// FSR 1 EASU, SkSL port of AMD's ffx_fsr1.h (MIT).
+// Copyright (c) 2021 Advanced Micro Devices, Inc. See ../LICENSE-FSR.txt.
+// Pixel reads replace textureGather; full precision replaces reciprocal approximations.
+uniform shader inputImage;
+uniform float2 inputSize;
+uniform float2 outputSize;
+float3 readPixel(float2 p) { return float3(inputImage.eval(p + 0.5).rgb); }
+float luma(float3 c) { return c.g + 0.5 * (c.r + c.b); }
+void edge(inout float2 dir, inout float len, float w,
+          float a, float b, float c, float d, float e) {
+    float dx = d - b, dy = e - a;
+    dir += float2(dx, dy) * w;
+    float lx = clamp(abs(dx) / max(max(abs(d-c), abs(c-b)), 0.00001), 0.0, 1.0);
+    float ly = clamp(abs(dy) / max(max(abs(e-c), abs(c-a)), 0.00001), 0.0, 1.0);
+    len += (lx*lx + ly*ly) * w;
+}
+void tap(inout float3 color, inout float weight, float2 off, float2 dir,
+         float2 len, float lob, float clp, float3 sampleColor) {
+    float2 v = float2(dot(off, dir), dot(off, float2(-dir.y, dir.x))) * len;
+    float d2 = min(dot(v,v), clp);
+    float wb = 0.4*d2 - 1.0, wa = lob*d2 - 1.0;
+    float w = (1.5625*wb*wb - 0.5625)*wa*wa;
+    color += sampleColor*w; weight += w;
+}
+half4 main(float2 coord) {
+    float2 p = coord * inputSize/outputSize - 0.5;
+    float2 base = floor(p), f = fract(p);
+    float3 b=readPixel(base+float2(0,-1)), c=readPixel(base+float2(1,-1));
+    float3 e=readPixel(base+float2(-1,0)), g=readPixel(base+float2(1,0));
+    float3 h=readPixel(base+float2(2,0)), i=readPixel(base+float2(-1,1));
+    float3 j=readPixel(base+float2(0,1)), k=readPixel(base+float2(1,1));
+    float3 l=readPixel(base+float2(2,1)), n=readPixel(base+float2(0,2));
+    float3 o=readPixel(base+float2(1,2)), center=readPixel(base);
+    float2 dir=float2(0); float len=0;
+    edge(dir,len,(1-f.x)*(1-f.y),luma(b),luma(e),luma(center),luma(g),luma(j));
+    edge(dir,len,f.x*(1-f.y),luma(c),luma(center),luma(g),luma(h),luma(k));
+    edge(dir,len,(1-f.x)*f.y,luma(center),luma(i),luma(j),luma(k),luma(n));
+    edge(dir,len,f.x*f.y,luma(g),luma(j),luma(k),luma(l),luma(o));
+    float d2=dot(dir,dir);
+    dir=d2<0.000030517578125 ? float2(1,0) : dir*inversesqrt(d2);
+    len *= 0.5; len *= len;
+    float stretch=dot(dir,dir)/max(max(abs(dir.x),abs(dir.y)),0.00001);
+    float2 lengths=float2(1+(stretch-1)*len,1-0.5*len);
+    float lob=0.5+(0.21-0.5)*len, clp=1/lob;
+    float3 sum=float3(0); float weight=0;
+    tap(sum,weight,float2(0,-1)-f,dir,lengths,lob,clp,b);
+    tap(sum,weight,float2(1,-1)-f,dir,lengths,lob,clp,c);
+    tap(sum,weight,float2(-1,1)-f,dir,lengths,lob,clp,i);
+    tap(sum,weight,float2(0,1)-f,dir,lengths,lob,clp,j);
+    tap(sum,weight,float2(0,0)-f,dir,lengths,lob,clp,center);
+    tap(sum,weight,float2(-1,0)-f,dir,lengths,lob,clp,e);
+    tap(sum,weight,float2(1,1)-f,dir,lengths,lob,clp,k);
+    tap(sum,weight,float2(2,1)-f,dir,lengths,lob,clp,l);
+    tap(sum,weight,float2(2,0)-f,dir,lengths,lob,clp,h);
+    tap(sum,weight,float2(1,0)-f,dir,lengths,lob,clp,g);
+    tap(sum,weight,float2(1,2)-f,dir,lengths,lob,clp,o);
+    tap(sum,weight,float2(0,2)-f,dir,lengths,lob,clp,n);
+    float3 low=min(min(center,g),min(j,k)), high=max(max(center,g),max(j,k));
+    float alpha=float(inputImage.eval(p+0.5).a);
+    return half4(clamp(sum/max(weight,0.00001),low,high),alpha);
+}

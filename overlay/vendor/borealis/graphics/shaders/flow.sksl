@@ -1,0 +1,34 @@
+// SPDX-License-Identifier: Apache-2.0
+// Bidirectional iterative Lucas-Kanade optical flow on a small analysis grid.
+// Encoded RG = previous -> current, BA = current -> previous, range +/- 8 grid pixels.
+uniform shader previousImage;
+uniform shader currentImage;
+uniform shader flowImage;
+uniform float2 imageScale;
+uniform float hasFlow;
+float luminance(half4 c) { return dot(float3(c.rgb),float3(0.2126,0.7152,0.0722)); }
+float oldL(float2 p) { return luminance(previousImage.eval(p*imageScale)); }
+float newL(float2 p) { return luminance(currentImage.eval(p*imageScale)); }
+float2 solve(float2 p, float2 displacement, bool reverse) {
+    float xx=0,xy=0,yy=0,xt=0,yt=0;
+    for (int y=-1;y<=1;++y) {
+        for (int x=-1;x<=1;++x) {
+            float2 a=p+float2(x,y), b=a+displacement;
+            float reference=reverse ? newL(a) : oldL(a);
+            float sample=reverse ? oldL(b) : newL(b);
+            float dx=0.5*(reverse ? oldL(b+float2(1,0))-oldL(b-float2(1,0)) : newL(b+float2(1,0))-newL(b-float2(1,0)));
+            float dy=0.5*(reverse ? oldL(b+float2(0,1))-oldL(b-float2(0,1)) : newL(b+float2(0,1))-newL(b-float2(0,1)));
+            float dt=sample-reference;
+            xx+=dx*dx;xy+=dx*dy;yy+=dy*dy;xt+=dx*dt;yt+=dy*dt;
+        }
+    }
+    float determinant=xx*yy-xy*xy;
+    if (determinant<0.000001) return displacement;
+    float2 delta=float2(xy*yt-yy*xt,xy*xt-xx*yt)/determinant;
+    return clamp(displacement+clamp(delta,-1.5,1.5),-8.0,8.0);
+}
+half4 main(float2 p) {
+    float4 initial=hasFlow>0.5 ? (float4(flowImage.eval(p))-0.5)*16.0 : float4(0);
+    float2 forward=solve(p,initial.rg,false), backward=solve(p,initial.ba,true);
+    return half4(float4(forward,backward)/16.0+0.5);
+}

@@ -1,0 +1,4 @@
+# SPDX-License-Identifier: Apache-2.0
+on post-fs-data
+    mkdir /data/misc/borealis-graphics 0750 system graphics
+    restorecon_recursive /data/misc/borealis-graphics

@@ -1,0 +1,9 @@
+{
+  "fsr1_repository": "https://github.com/GPUOpen-Effects/FidelityFX-FSR",
+  "fsr1_commit": "a21ffb8f6c13233ba336352bdff293894c706575",
+  "source": "ffx-fsr/ffx_fsr1.h",
+  "license": "MIT",
+  "port": "FP32 EASU and noise-attenuated RCAS to SkSL; pixel reads replace gathers, exact reciprocals and safe denominators",
+  "frame_generation": "Independent experimental bidirectional Lucas-Kanade interpolation; not AMD FSR 3",
+  "fsr2_fsr3_systemwide": false
+}

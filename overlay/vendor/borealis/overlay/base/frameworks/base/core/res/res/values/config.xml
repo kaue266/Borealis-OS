@@ -1,0 +1,6 @@
+<resources>
+    <integer name="config_defaultNightMode">2</integer>
+    <string name="config_headlineFontFamily" translatable="false">borealis-orbit</string>
+    <string name="config_headlineFontFamilyMedium" translatable="false">borealis-orbit</string>
+    <string name="config_icon_mask" translatable="false">"M50,0L78,0C91,0 100,9 100,22L100,78C100,91 91,100 78,100L22,100C9,100 0,91 0,78L0,22C0,9 9,0 22,0Z"</string>
+</resources>

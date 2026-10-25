@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Borealis default palette. Android wallpaper colors remain user-configurable. -->
+<resources>
+    <color name="system_accent1_0">#FFFFFF</color>
+    <color name="system_accent1_10">#FFFBFF</color>
+    <color name="system_accent1_50">#F5EDFF</color>
+    <color name="system_accent1_100">#EBDDFF</color>
+    <color name="system_accent1_200">#D3BEFF</color>
+    <color name="system_accent1_300">#BCA1EF</color>
+    <color name="system_accent1_400">#A187D3</color>
+    <color name="system_accent1_500">#856DB7</color>
+    <color name="system_accent1_600">#6D549D</color>
+    <color name="system_accent1_700">#543C83</color>
+    <color name="system_accent1_800">#3C256A</color>
+    <color name="system_accent1_900">#240D50</color>
+    <color name="system_accent1_1000">#000000</color>
+    <color name="system_accent2_100">#B6EFDE</color>
+    <color name="system_accent2_200">#9AD3C2</color>
+    <color name="system_accent2_300">#80B7A7</color>
+    <color name="system_accent2_400">#659C8D</color>
+    <color name="system_accent2_500">#4B8273</color>
+    <color name="system_accent2_600">#31695B</color>
+    <color name="system_accent2_700">#165043</color>
+    <color name="system_accent2_800">#00382D</color>
+    <color name="system_accent2_900">#002118</color>
+    <color name="background_material_dark">#090D15</color>
+    <color name="primary_material_dark">#141B27</color>
+    <color name="primary_dark_material_dark">#090D15</color>
+    <color name="material_grey_850">#141B27</color>
+    <color name="material_grey_900">#090D15</color>
+</resources>

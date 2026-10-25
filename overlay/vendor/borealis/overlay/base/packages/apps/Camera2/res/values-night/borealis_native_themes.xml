@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+  <style name="Theme.ProxyLauncher" parent="@android:Theme.Translucent.NoTitleBar">
+    <item name="android:colorAccent">@color/borealis_accent</item>
+    <item name="android:textColorPrimary">@color/borealis_text</item>
+    <item name="android:textColorSecondary">@color/borealis_muted</item>
+    <item name="android:colorControlActivated">@color/borealis_accent</item>
+    <item name="android:colorControlNormal">@color/borealis_muted</item>
+    <item name="android:dialogCornerRadius">28dp</item>
+  </style>
+  <style name="Theme.Camera" parent="android:style/Theme.Holo.Light.DarkActionBar">
+    <item name="android:windowFullscreen">true</item>
+    <item name="android:windowActionBar">false</item>
+    <item name="android:windowTitleSize">0dp</item>
+    <item name="android:windowActionBarOverlay">true</item>
+    <item name="android:windowBackground">@color/camera_gray_background</item>
+    <item name="android:colorBackground">@color/camera_gray_background</item>
+    <item name="android:colorBackgroundCacheHint">@color/camera_gray_background</item>
+    <item name="android:actionBarStyle">@style/Camera.ActionBar</item>
+    <item name="android:colorAccent">@color/borealis_accent</item>
+    <item name="android:textColorPrimary">@color/borealis_text</item>
+    <item name="android:textColorSecondary">@color/borealis_muted</item>
+    <item name="android:colorControlActivated">@color/borealis_accent</item>
+    <item name="android:colorControlNormal">@color/borealis_muted</item>
+    <item name="android:dialogCornerRadius">28dp</item>
+  </style>
+  <style name="Theme.SecureCamera" parent="@style/Theme.Camera">
+    <item name="android:windowBackground">@drawable/cover</item>
+    <item name="android:colorAccent">@color/borealis_accent</item>
+    <item name="android:textColorPrimary">@color/borealis_text</item>
+    <item name="android:textColorSecondary">@color/borealis_muted</item>
+    <item name="android:colorControlActivated">@color/borealis_accent</item>
+    <item name="android:colorControlNormal">@color/borealis_muted</item>
+    <item name="android:dialogCornerRadius">28dp</item>
+  </style>
+  <style name="Theme.CameraSettings" parent="@android:style/Theme.Holo.Light.DarkActionBar">
+    <item name="android:windowFullscreen">true</item>
+    <item name="android:actionBarStyle">@style/Settings.ActionBar</item>
+    <item name="android:colorAccent">@color/borealis_accent</item>
+    <item name="android:textColorPrimary">@color/borealis_text</item>
+    <item name="android:textColorSecondary">@color/borealis_muted</item>
+    <item name="android:colorControlActivated">@color/borealis_accent</item>
+    <item name="android:colorControlNormal">@color/borealis_muted</item>
+    <item name="android:dialogCornerRadius">28dp</item>
+  </style>
+</resources>

@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+  <color name="borealis_background">#090D15</color>
+  <color name="borealis_surface">#171D2B</color>
+  <color name="borealis_text">#F2F3FF</color>
+  <color name="borealis_muted">#AFB9CD</color>
+  <color name="borealis_accent">#C5B4FF</color>
+  <color name="borealis_aurora">#8BE8D0</color>
+  <color name="borealis_outline">#313B50</color>
+  <color name="borealis_on_accent">#261C3F</color>
+  <color name="borealis_dark_background">#090D15</color>
+  <color name="borealis_dark_surface">#171D2B</color>
+  <color name="borealis_dark_text">#F2F3FF</color>
+  <color name="borealis_dark_muted">#AFB9CD</color>
+  <color name="borealis_dark_accent">#C5B4FF</color>
+  <color name="borealis_dark_aurora">#8BE8D0</color>
+  <color name="borealis_dark_outline">#313B50</color>
+  <color name="borealis_dark_on_accent">#261C3F</color>
+  <color name="quantum_black_text">#F2F3FF</color>
+  <color name="quantum_black_secondary_text">#AFB9CD</color>
+  <color name="quantum_black_hint_text">#AFB9CD</color>
+  <color name="quickcontact_entry_sub_header_text_color">#AFB9CD</color>
+  <color name="quickcontact_entry_header_text_color">#F2F3FF</color>
+  <color name="action_bar_background">#171D2B</color>
+  <color name="actionbar_background_color">#171D2B</color>
+  <color name="action_bar_button_text_color">#F2F3FF</color>
+  <color name="primary_color">#C5B4FF</color>
+  <color name="primary_color_dark">#090D15</color>
+  <color name="contacts_accent_color">#261C3F</color>
+  <color name="floating_action_button_icon_color">#261C3F</color>
+  <color name="divider_line_color_light">#DEDCE9</color>
+  <color name="expanding_entry_card_background_color">#171D2B</color>
+  <color name="expanding_entry_card_button_text_color">#F2F3FF</color>
+  <color name="card_margin_color">#090D15</color>
+  <color name="contextual_selection_bar_color">#171D2B</color>
+  <color name="contextual_selection_bar_status_bar_color">#090D15</color>
+</resources>

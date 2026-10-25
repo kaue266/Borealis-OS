@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+  <dimen name="qs_corner_radius">28dp</dimen>
+  <dimen name="notification_corner_radius">24dp</dimen>
+  <dimen name="volume_dialog_background_corner_radius">28dp</dimen>
+  <dimen name="control_corner_radius">20dp</dimen>
+  <dimen name="media_output_dialog_corner_radius">28dp</dimen>
+  <dimen name="internet_dialog_corner_radius">28dp</dimen>
+  <dimen name="volume_dialog_tap_target_size">48dp</dimen>
+  <dimen name="volume_ringer_drawer_item_size">48dp</dimen>
+  <dimen name="volume_ringer_drawer_item_size_half">24dp</dimen>
+</resources>

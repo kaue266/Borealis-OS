@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<fonts-modification>
+    <family customizationType="new-named-family" name="borealis-orbit">
+        <font weight="400" style="normal">BorealisOrbit-Regular.ttf</font>
+    </family>
+</fonts-modification>

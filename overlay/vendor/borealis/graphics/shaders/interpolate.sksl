@@ -1,0 +1,20 @@
+// SPDX-License-Identifier: Apache-2.0
+// Motion-compensated midpoint, with local disocclusion/scene-cut rejection.
+uniform shader previousImage;
+uniform shader currentImage;
+uniform shader flowImage;
+uniform float2 imageScale;
+uniform float2 imageSize;
+half4 main(float2 p) {
+    float4 field=(float4(flowImage.eval(p/imageScale))-0.5)*16.0;
+    float2 forward=field.rg*imageScale, backward=field.ba*imageScale;
+    float2 oldP=p-0.5*forward, newP=p-0.5*backward;
+    half4 current=currentImage.eval(p);
+    if (any(lessThan(oldP,float2(0.5))) || any(greaterThan(oldP,imageSize-0.5)) ||
+        any(lessThan(newP,float2(0.5))) || any(greaterThan(newP,imageSize-0.5))) return current;
+    float disagreement=length((forward+backward)/imageScale);
+    half4 oldWarp=previousImage.eval(oldP), newWarp=currentImage.eval(newP);
+    float error=max(max(abs(float(oldWarp.r-newWarp.r)),abs(float(oldWarp.g-newWarp.g))),abs(float(oldWarp.b-newWarp.b)));
+    if (disagreement>2.0 || error>0.18) return current;
+    return 0.5*(oldWarp+newWarp);
+}
