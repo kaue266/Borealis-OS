@@ -1,0 +1,174 @@
+[
+  {
+    "path": "overlay/device/samsung/exynos7885-common/releasetools/dtb.img",
+    "reason": "binary/build/private filename or size filter"
+  },
+  {
+    "path": "overlay/kernel/borealis/eureka/diagnostic-artifacts/dtb.img",
+    "reason": "binary/build/private filename or size filter"
+  },
+  {
+    "path": "overlay/kernel/borealis/eureka/diagnostic-artifacts/dtbo.img",
+    "reason": "binary/build/private filename or size filter"
+  },
+  {
+    "path": "overlay/kernel/borealis/eureka/diagnostic-artifacts/kernelsu/Image",
+    "reason": "binary/build/private filename or size filter"
+  },
+  {
+    "path": "overlay/kernel/borealis/eureka/diagnostic-artifacts/main/Image",
+    "reason": "binary/build/private filename or size filter"
+  },
+  {
+    "path": "overlay/vendor/borealis/media/bootanimation.zip",
+    "reason": "binary/build/private filename or size filter"
+  },
+  {
+    "path": "overlay/vendor/borealis/apps/NebulaControl/Nebula-Control.apk",
+    "reason": "binary/build/private filename or size filter"
+  },
+  {
+    "path": "overlay/vendor/borealis/compat/protobuf391/arm/libprotobuf-cpp-full-3.9.1.so",
+    "reason": "binary/build/private filename or size filter"
+  },
+  {
+    "path": "overlay/vendor/borealis/compat/protobuf391/arm/libprotobuf-cpp-lite-3.9.1.so",
+    "reason": "binary/build/private filename or size filter"
+  },
+  {
+    "path": "overlay/vendor/borealis/compat/protobuf391/arm64/libprotobuf-cpp-full-3.9.1.so",
+    "reason": "binary/build/private filename or size filter"
+  },
+  {
+    "path": "overlay/vendor/borealis/compat/protobuf391/arm64/libprotobuf-cpp-lite-3.9.1.so",
+    "reason": "binary/build/private filename or size filter"
+  },
+  {
+    "path": "overlay/vendor/borealis/prebuilts/kernel/dtb.img",
+    "reason": "binary/build/private filename or size filter"
+  },
+  {
+    "path": "overlay/vendor/borealis/prebuilts/kernel/dtbo.img",
+    "reason": "binary/build/private filename or size filter"
+  },
+  {
+    "path": "overlay/vendor/borealis/prebuilts/kernel/Image",
+    "reason": "binary/build/private filename or size filter"
+  },
+  {
+    "path": "overlay/vendor/borealis/media/bootanimation.zip",
+    "reason": "binary/build/private filename or size filter"
+  },
+  {
+    "path": "overlay/vendor/borealis/prebuilts/kernel/dtbo.img",
+    "reason": "binary/build/private filename or size filter"
+  },
+  {
+    "path": "overlay/vendor/borealis/prebuilts/kernel/Image",
+    "reason": "binary/build/private filename or size filter"
+  },
+  {
+    "path": "overlay/vendor/borealis/prebuilts/kernel/dtb.img",
+    "reason": "binary/build/private filename or size filter"
+  },
+  {
+    "path": "overlay/vendor/borealis/apps/NebulaControl/Nebula-Control.apk",
+    "reason": "binary/build/private filename or size filter"
+  },
+  {
+    "path": "overlay/vendor/borealis/compat/protobuf391/arm/libprotobuf-cpp-lite-3.9.1.so",
+    "reason": "binary/build/private filename or size filter"
+  },
+  {
+    "path": "overlay/vendor/borealis/compat/protobuf391/arm/libprotobuf-cpp-full-3.9.1.so",
+    "reason": "binary/build/private filename or size filter"
+  },
+  {
+    "path": "overlay/vendor/borealis/compat/protobuf391/arm64/libprotobuf-cpp-lite-3.9.1.so",
+    "reason": "binary/build/private filename or size filter"
+  },
+  {
+    "path": "overlay/vendor/borealis/compat/protobuf391/arm64/libprotobuf-cpp-full-3.9.1.so",
+    "reason": "binary/build/private filename or size filter"
+  },
+  {
+    "path": "development/tools/__pycache__/add-aosp-port-dependencies.cpython-312.pyc",
+    "reason": "binary/build/private filename or size filter"
+  },
+  {
+    "path": "development/tools/__pycache__/audit-kernels.cpython-312.pyc",
+    "reason": "binary/build/private filename or size filter"
+  },
+  {
+    "path": "development/tools/__pycache__/audit-mali-stack.cpython-312.pyc",
+    "reason": "binary/build/private filename or size filter"
+  },
+  {
+    "path": "development/tools/__pycache__/audit-vendor-libraries.cpython-312.pyc",
+    "reason": "binary/build/private filename or size filter"
+  },
+  {
+    "path": "development/tools/__pycache__/create-assets.cpython-312.pyc",
+    "reason": "binary/build/private filename or size filter"
+  },
+  {
+    "path": "development/tools/__pycache__/create-messaging-layouts.cpython-312.pyc",
+    "reason": "binary/build/private filename or size filter"
+  },
+  {
+    "path": "development/tools/__pycache__/create-native-theme.cpython-312.pyc",
+    "reason": "binary/build/private filename or size filter"
+  },
+  {
+    "path": "development/tools/__pycache__/create-settings-home.cpython-312.pyc",
+    "reason": "binary/build/private filename or size filter"
+  },
+  {
+    "path": "development/tools/__pycache__/create-systemui-layouts.cpython-312.pyc",
+    "reason": "binary/build/private filename or size filter"
+  },
+  {
+    "path": "development/tools/__pycache__/inspect-firmware.cpython-312.pyc",
+    "reason": "binary/build/private filename or size filter"
+  },
+  {
+    "path": "development/tools/__pycache__/install-project.cpython-312.pyc",
+    "reason": "binary/build/private filename or size filter"
+  },
+  {
+    "path": "development/tools/__pycache__/install-systemui-layouts.cpython-312.pyc",
+    "reason": "binary/build/private filename or size filter"
+  },
+  {
+    "path": "development/tools/__pycache__/install-vendor-compat.cpython-312.pyc",
+    "reason": "binary/build/private filename or size filter"
+  },
+  {
+    "path": "development/tools/__pycache__/port-graphics.cpython-312.pyc",
+    "reason": "binary/build/private filename or size filter"
+  },
+  {
+    "path": "development/tools/__pycache__/prepare-kernel.cpython-312.pyc",
+    "reason": "binary/build/private filename or size filter"
+  },
+  {
+    "path": "development/tools/__pycache__/refine-preview.cpython-312.pyc",
+    "reason": "binary/build/private filename or size filter"
+  },
+  {
+    "path": "development/tools/__pycache__/sync-ims-submodules.cpython-312.pyc",
+    "reason": "binary/build/private filename or size filter"
+  },
+  {
+    "path": "development/tools/__pycache__/theme-inventory.cpython-312.pyc",
+    "reason": "binary/build/private filename or size filter"
+  },
+  {
+    "path": "development/tools/__pycache__/verify-kernel-pair-current.cpython-312.pyc",
+    "reason": "binary/build/private filename or size filter"
+  },
+  {
+    "path": "development/tests/__pycache__/kernel-gpu-dt.cpython-312.pyc",
+    "reason": "binary/build/private filename or size filter"
+  }
+]

@@ -1,0 +1,119 @@
+{
+  "secret_pattern_scan_passed": true,
+  "files_scanned": 289,
+  "patterns": [
+    "github-token",
+    "private-key",
+    "aws-key",
+    "device-serial",
+    "private-network",
+    "credential-url"
+  ],
+  "patch_checks": [
+    {
+      "project": "bootable/deprecated-ota",
+      "base": "d9145a6f8e393e5925d43c402da98da5dd6dff76",
+      "clean_base_apply": true,
+      "files_compared": 1
+    },
+    {
+      "project": "build/blueprint",
+      "base": "7f2058de8155b05ea3c3f8317d33bfe732cacf8b",
+      "clean_base_apply": true,
+      "files_compared": 1
+    },
+    {
+      "project": "build/make",
+      "base": "5ce6f787337d0223710bf7d4a16dbe6d2a35f777",
+      "clean_base_apply": true,
+      "files_compared": 1
+    },
+    {
+      "project": "build/soong",
+      "base": "6722dd8833db7482df1a2543ca3fcf67ddf0f7b1",
+      "clean_base_apply": true,
+      "files_compared": 1
+    },
+    {
+      "project": "device/samsung/a30",
+      "base": "437bc6a96533ff686db2f978c91a22c804d87cf5",
+      "clean_base_apply": true,
+      "files_compared": 3
+    },
+    {
+      "project": "device/samsung/exynos7885-common",
+      "base": "59f063fcfbe14274069bcd4c3546a86581cad4bf",
+      "clean_base_apply": true,
+      "files_compared": 4
+    },
+    {
+      "project": "device/samsung_slsi/sepolicy",
+      "base": "2ad1eaccaf3e4ffbef503c0e08304571b659f242",
+      "clean_base_apply": true,
+      "files_compared": 5
+    },
+    {
+      "project": "frameworks/base",
+      "base": "94b4c163b7dfe5ce3607f7bb8456f9573f7de57d",
+      "clean_base_apply": true,
+      "files_compared": 1
+    },
+    {
+      "project": "frameworks/native",
+      "base": "ae266dcb706d083868578cfedce381ef44488a07",
+      "clean_base_apply": true,
+      "files_compared": 7
+    },
+    {
+      "project": "hardware/google/pixel",
+      "base": "8d371222290203e232f2e2b88cb86eb9d23e98de",
+      "clean_base_apply": true,
+      "files_compared": 3
+    },
+    {
+      "project": "hardware/lineage/compat",
+      "base": "9e8811a297036c370f7643813a3c733f6e442d86",
+      "clean_base_apply": true,
+      "files_compared": 1
+    },
+    {
+      "project": "hardware/samsung",
+      "base": "5d20e3541d147494e074bf710d35b1960a6ed0a2",
+      "clean_base_apply": true,
+      "files_compared": 3
+    },
+    {
+      "project": "hardware/samsung_slsi-linaro/exynos",
+      "base": "513a0330522e02d77bd63d391010db7e3026c0ae",
+      "clean_base_apply": true,
+      "files_compared": 8
+    },
+    {
+      "project": "packages/apps/Settings",
+      "base": "213829fb67f5e070029e0513a088f31bc8f5c1ed",
+      "clean_base_apply": true,
+      "files_compared": 4
+    },
+    {
+      "project": "system/core",
+      "base": "545d2487e38192a2ce25040897ced877cf6b4f53",
+      "clean_base_apply": true,
+      "files_compared": 4
+    },
+    {
+      "project": "system/sepolicy",
+      "base": "e066568e98d86db31a9346d30977f3632fa7073c",
+      "clean_base_apply": true,
+      "files_compared": 2
+    },
+    {
+      "project": "vendor/samsung/a30",
+      "base": "c65f50b6a910c4d0ee640ae533b4c8fe4148b4c9",
+      "clean_base_apply": true,
+      "files_compared": 1
+    }
+  ],
+  "full_rom_build_run": false,
+  "repo_sync_from_new_remote_run": false,
+  "limitations": "Bounded pattern scanning does not prove absence of all possible secrets. No phone backups or logs were selected."
+}

@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8'?>
+<manifest>
+  <remote name="borealis-lineage-vendor" fetch="https://github.com/LineageOS/" />
+  <project path="device/lineage/sepolicy" name="android_device_lineage_sepolicy" revision="0a9e75292f0ed1a83c31a311b1b32367a9faff75" remote="borealis-lineage-vendor" clone-depth="1" />
+  <project path="hardware/lineage/interfaces" name="android_hardware_lineage_interfaces" revision="805d25348106e8cc6f378c0b153789f3cf8da667" remote="borealis-lineage-vendor" clone-depth="1" />
+  <project path="hardware/google/pixel" name="android_hardware_google_pixel" revision="8d371222290203e232f2e2b88cb86eb9d23e98de" remote="borealis-lineage-vendor" clone-depth="1" />
+  <project path="hardware/samsung_slsi-linaro/interfaces" name="android_hardware_samsung_slsi-linaro_interfaces" revision="a23ed82b3f3859aa9e0207036b0d0e98119b959b" remote="borealis-lineage-vendor" clone-depth="1" />
+  <project path="hardware/lineage/compat" name="android_hardware_lineage_compat" revision="9e8811a297036c370f7643813a3c733f6e442d86" remote="borealis-lineage-vendor" clone-depth="1" />
+</manifest>

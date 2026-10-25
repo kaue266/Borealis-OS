@@ -1,0 +1,1134 @@
+{
+  "files": [
+    {
+      "path": ".gitignore",
+      "bytes": 108,
+      "sha256": "b8df6210c13576667c5274cbb8829afe1d4f0e80fdf314352acc66748813cabc"
+    },
+    {
+      "path": "default.xml",
+      "bytes": 109,
+      "sha256": "7f3c56c913e0cfce62cd9afca70b5cf0c42f2c50f43a8c9782120d4fc0a3d40c"
+    },
+    {
+      "path": "development/design/aurora-wallpaper.svg",
+      "bytes": 31208,
+      "sha256": "a508c79ba322b4e72792963371d6cacafe85e5921e0d1ed24cf94e6f01cd0e2e"
+    },
+    {
+      "path": "development/design/bootanimation-preview.png",
+      "bytes": 32274,
+      "sha256": "8ee138a8c2740c353c0f6eb3ae74d31bb60cb795f28da9b0df4de80b794c4c70"
+    },
+    {
+      "path": "development/design/tokens.json",
+      "bytes": 645,
+      "sha256": "5fa2d12ede1715d8928c89abb064ea2816360b98cedaded2441f2fabcd220d68"
+    },
+    {
+      "path": "development/design/v3-preview.html",
+      "bytes": 38018,
+      "sha256": "a62f6b9c28141049f58b941202480cede86bd815ba57afc43dd59efb51e354c8"
+    },
+    {
+      "path": "development/patches/pixel-power-v7-session-mode.patch",
+      "bytes": 683,
+      "sha256": "40f676062d1ab683603da95938e57dc052f85870b151c6c7dc06f4175bb158e7"
+    },
+    {
+      "path": "development/patches/pixelatoms-statsd-module-name.patch",
+      "bytes": 10789,
+      "sha256": "0cb52add3e08c6542fb51e4f162723bed43b39d0bbfec87b873e1ebe5cd032ff"
+    },
+    {
+      "path": "development/patches/releasetools-static-ota-ublk.patch",
+      "bytes": 830,
+      "sha256": "fcc7be90825d6613656b3b853f911776f971f808c56302ee357eed2d5bed6315"
+    },
+    {
+      "path": "development/patches/samsung-complete-a30-fcm5.patch",
+      "bytes": 147830,
+      "sha256": "70e63b2cae8d25371d27b3e714f3dcea3bbc7549745a726aed22f5b948d08d5b"
+    },
+    {
+      "path": "development/patches/samsung-lineage-hal-bindings.patch",
+      "bytes": 5539,
+      "sha256": "1bf4b579538a74efad0130ce6b63e5902634ff7231ea38f845e1abdea9508717"
+    },
+    {
+      "path": "development/patches/samsung-lineage-hal-domains.patch",
+      "bytes": 2022,
+      "sha256": "e420f8562b734b077f39de68f2280c338282eda47e2227a4ec518e019a7e1255"
+    },
+    {
+      "path": "development/patches/samsung-lineage-vintf-contracts.patch",
+      "bytes": 1098,
+      "sha256": "24703953e6d326460b8f333f20dd6b2c64be653fdcb38e653d78727c721d9c14"
+    },
+    {
+      "path": "development/patches/samsung-sepolicy-platform-zram-owner.patch",
+      "bytes": 366,
+      "sha256": "f66fde2ebcb5b571516e85fc437325c74f7638b552f37b163863413fc9ee499d"
+    },
+    {
+      "path": "development/tests/aosp_shader_test.cpp",
+      "bytes": 1909,
+      "sha256": "f8c913bbc67db184fce6afc6fc6f10a69f4d64f35a14cf7e6d11b22cd5ae8c28"
+    },
+    {
+      "path": "development/tests/firmware_inspection_test.py",
+      "bytes": 8542,
+      "sha256": "e39ff2fc6347645129aecf3a3468e0c1f1b832dd626d1fd6faeabca56a680c67"
+    },
+    {
+      "path": "development/tests/frame_clock_test.cpp",
+      "bytes": 1240,
+      "sha256": "4be9aeb21150827b09138d382afb87ac217ae3de2e47ac16952cb4c2f406172b"
+    },
+    {
+      "path": "development/tests/graphics-state.cpp",
+      "bytes": 3606,
+      "sha256": "2f2652ddf77dcca1dd0a4712e2e71a2145bb7196123d3cbf7d442eb341ee7399"
+    },
+    {
+      "path": "development/tests/graphics_test.py",
+      "bytes": 6197,
+      "sha256": "2b006fc789c8503943f78bd82f56c98ce6e19fe67993a7207f5fb92b462f2c4e"
+    },
+    {
+      "path": "development/tests/integration_test.py",
+      "bytes": 5634,
+      "sha256": "404ce60d489f063d8520b94d2a3ed2ff50facb04bc5bc903ec875d1a136970ef"
+    },
+    {
+      "path": "development/tests/performance_test.cpp",
+      "bytes": 8729,
+      "sha256": "a9598c02b1997f4724f327808d33c9b746482b069351feb93a85f20f5b3e8b92"
+    },
+    {
+      "path": "development/tests/run-graphics.sh",
+      "bytes": 496,
+      "sha256": "fcb5775e02b68ce46a431d74635ce44ba8ec2c8d08a927fa87fa9d899856ae88"
+    },
+    {
+      "path": "development/tests/run.sh",
+      "bytes": 476,
+      "sha256": "54f8ea6c516fae49cfaf15709c9e0906e932a92d127dc9cf20dd72521e4dd345"
+    },
+    {
+      "path": "development/tests/stubs/android-base/properties.h",
+      "bytes": 1015,
+      "sha256": "d818c9a2ed012a6bb48e3858e3404d7a683c0c1add538febedeceace57773ed7"
+    },
+    {
+      "path": "development/tests/systemui_resources_test.py",
+      "bytes": 5443,
+      "sha256": "3500dc5c73fc7a891339b19b1497bdcbd8841c4e9cdb9ed1ad919005567608e1"
+    },
+    {
+      "path": "development/tests/wipeonfork-arm64-probe.c",
+      "bytes": 3815,
+      "sha256": "f895e5bde54aad785b39f2146daaabdf819f80b7631a71462b15f231dab92622"
+    },
+    {
+      "path": "development/tools/add-aosp-port-dependencies.py",
+      "bytes": 2268,
+      "sha256": "e78876775f71064576e0977ce2536789f7218fc16935d3208faf96f50fe3900f"
+    },
+    {
+      "path": "development/tools/audit-mali-stack.py",
+      "bytes": 2598,
+      "sha256": "14333d640d24d7ee3c4752af926c90bdd686f36fd8b8c848a1a6ce8b565fd87a"
+    },
+    {
+      "path": "development/tools/audit-vendor-libraries.py",
+      "bytes": 1390,
+      "sha256": "97485e64455ae126d672caa7529849bf3f1086ca001c930f08e220c1204b1224"
+    },
+    {
+      "path": "development/tools/create-assets.py",
+      "bytes": 3857,
+      "sha256": "115974301c43392dbd67da8d5ee5d76aac49c71018f3a30551ef1152f0ee5f76"
+    },
+    {
+      "path": "development/tools/create-messaging-layouts.py",
+      "bytes": 4563,
+      "sha256": "fe72bc498a9440967265ff09f4c13de36b234cdceb0cf74fa483cc0e2f1fa1ee"
+    },
+    {
+      "path": "development/tools/create-native-theme.py",
+      "bytes": 14176,
+      "sha256": "a6aa29d48146a0a2c00a854c97cf4319cb033290ae5582e33734d69f7fe3c2e4"
+    },
+    {
+      "path": "development/tools/create-settings-home.py",
+      "bytes": 3491,
+      "sha256": "b03049c1320f2ea364ec16eff717fd6765d6df214a46e71526f45d8372a38298"
+    },
+    {
+      "path": "development/tools/create-systemui-layouts.py",
+      "bytes": 6634,
+      "sha256": "5157d0d635061ee0fa5bf6dd04919e05800d1c5a11e2bdefaa882a240e55c334"
+    },
+    {
+      "path": "development/tools/inspect-firmware.py",
+      "bytes": 12537,
+      "sha256": "556454dd54a92441327bd24180f2b3d1299a1c575d86137f84fa650422af4d3b"
+    },
+    {
+      "path": "development/tools/install-project.py",
+      "bytes": 10629,
+      "sha256": "a0e7c44d63fb06d19cb9f31c7c63afd2670192b7b0a961756ebac33c0af2d691"
+    },
+    {
+      "path": "development/tools/install-systemui-layouts.py",
+      "bytes": 1768,
+      "sha256": "e07de1a8afc1c3bb49f65383197293a9a81f702d6c92a8723a9ce52ece0048e2"
+    },
+    {
+      "path": "development/tools/install-vendor-compat.py",
+      "bytes": 3197,
+      "sha256": "06b585a9a8525bbfc91758a38cbb8894bbebde184c32601a3afb2c4f128a3783"
+    },
+    {
+      "path": "development/tools/port-graphics.py",
+      "bytes": 13880,
+      "sha256": "80a48cd26604ea8cc88a65f3b6ac2ce5e82855feb5edac80a93b0f1e861618ff"
+    },
+    {
+      "path": "development/tools/refine-preview.py",
+      "bytes": 12924,
+      "sha256": "41af80208ccb9c2ac858eb9bb64c642e09c943b5ca33b3fd7e45b00657b51b9d"
+    },
+    {
+      "path": "development/tools/repair-twrp-sideload-usb.sh",
+      "bytes": 3265,
+      "sha256": "c2e01a1f7d88e1fba914771de5b142a802015c2b49b015ca91492d405c4c2643"
+    },
+    {
+      "path": "development/tools/sync-ims-submodules.py",
+      "bytes": 1426,
+      "sha256": "d3adf8c6e05da9575046d827efdd031deddbefaa91b40d8cd5cf7a696954efea"
+    },
+    {
+      "path": "development/tools/theme-inventory.py",
+      "bytes": 1657,
+      "sha256": "663063ebb432a8f22b5c5967f02ebd75cd59872862117cf96b1d36a5de312290"
+    },
+    {
+      "path": "docs/BUILD-STATUS.md",
+      "bytes": 1375,
+      "sha256": "eda7869b38c3a2b5282b6e67250a5e83baabbaf3a9f553bb8920ae2052ee0011"
+    },
+    {
+      "path": "docs/excluded-inputs.json",
+      "bytes": 6413,
+      "sha256": "e4d4daceba194a604ea881e21fa1243f534cd5884dd06e7128d09165a188c64b"
+    },
+    {
+      "path": "docs/source-validation.json",
+      "bytes": 3434,
+      "sha256": "fef65dcc421ce1ecba50258d96915a947a8b16c3126db1cacb49c6faefb8bbc0"
+    },
+    {
+      "path": "manifests/local-reference/borealis-a30.xml",
+      "bytes": 3252,
+      "sha256": "cd5eb36544d526ecc2bd7687338eb6965e228b25e7a4829438aa3961d60939a2"
+    },
+    {
+      "path": "manifests/local-reference/borealis-vendor-compat.xml",
+      "bytes": 1104,
+      "sha256": "29fc640d3fa86eef7d1b07d44a4fc31cd6fd009de4e81ce6da05983740945c63"
+    },
+    {
+      "path": "manifests/source-lock.xml",
+      "bytes": 236367,
+      "sha256": "40fa56bd1f08af986411e46188f97018ca4650fe9ca8f299f6ca71986fb88df6"
+    },
+    {
+      "path": "NOTICE.md",
+      "bytes": 939,
+      "sha256": "3d0c3bfcabaa646bd1d824b91571f23d23ac08e344dd545fb7642e9a025a3766"
+    },
+    {
+      "path": "overlay/bootable/deprecated-ota/updater/borealis_recovery_random.h",
+      "bytes": 2739,
+      "sha256": "68d9c301a1abce9e79bbe2ca56b833b372310aff91c39e9c185699e2595d027c"
+    },
+    {
+      "path": "overlay/bootable/deprecated-ota/updater/updater_main.cpp",
+      "bytes": 3612,
+      "sha256": "5ec447c4f4a7fb27295058d7fd36cf40b01959cc6ecd37897a9075af4a93e2f8"
+    },
+    {
+      "path": "overlay/device/samsung/a30/AndroidProducts.mk",
+      "bytes": 102,
+      "sha256": "53cab788250bd07bb4d93ce5fd9bdaf4ca2993d205dce1597812d7350d1b56df"
+    },
+    {
+      "path": "overlay/device/samsung/a30/borealis-analysis-scope.mk",
+      "bytes": 556162,
+      "sha256": "e495b59d6fb94dc387d34300411deda3a97fe28101f4e87ad25d6b5bc2cbeaee"
+    },
+    {
+      "path": "overlay/device/samsung/a30/borealis_a30.mk",
+      "bytes": 647,
+      "sha256": "cf8bd26aab9e9d6c89078f6c6d5e0a51457cc9902d04f47e0edcf1a186336ccc"
+    },
+    {
+      "path": "overlay/device/samsung/exynos7885-common/build/tasks/dtbimage.mk",
+      "bytes": 1096,
+      "sha256": "3d8e946652f2683c7dc07bfcd36ffa7f9b8f40426dd8117f099bcc3de76e2635"
+    },
+    {
+      "path": "overlay/device/samsung/exynos7885-common/releasetools/Android.mk",
+      "bytes": 60,
+      "sha256": "3d2ed205d23b3f16a9c1c93fe0d1811dcaed31fedba89ab64a9ff0336899b589"
+    },
+    {
+      "path": "overlay/frameworks/base/services/core/java/com/android/server/borealis/BorealisAudioService.java",
+      "bytes": 3586,
+      "sha256": "e42b4be3047890f519467c387195bdc8e1f73d6dd73e7a75e3e104d6c259b323"
+    },
+    {
+      "path": "overlay/frameworks/native/libs/renderengine/include/renderengine/BorealisGraphics.h",
+      "bytes": 607,
+      "sha256": "162d757311dfe6aeb835899ddb313e0df4e38f995265c2d73d5a86bd227abd31"
+    },
+    {
+      "path": "overlay/frameworks/native/libs/renderengine/skia/BorealisFrameClock.h",
+      "bytes": 1213,
+      "sha256": "e6998aa2175ef7f97e3160d6dddb8399ed80551ea7b9c8973eae381f72025602"
+    },
+    {
+      "path": "overlay/frameworks/native/libs/renderengine/skia/BorealisGraphics.cpp",
+      "bytes": 12638,
+      "sha256": "8f28b05baacc93f8cb6c0803ae05774b425d6733904bdd412b1ed93789d0a010"
+    },
+    {
+      "path": "overlay/frameworks/native/libs/renderengine/skia/BorealisGraphics.h",
+      "bytes": 1501,
+      "sha256": "2c0f4c030952e6bffa667eb50bac888a540da4ac0b188f1a361a959eb150959a"
+    },
+    {
+      "path": "overlay/frameworks/native/libs/renderengine/skia/BorealisGraphicsState.cpp",
+      "bytes": 2751,
+      "sha256": "d8f375ca8edc32d33b907494bacdfb05d5c4f653277ec1c683e0a32c480cd5b8"
+    },
+    {
+      "path": "overlay/frameworks/native/libs/renderengine/skia/BorealisShaders.h",
+      "bytes": 7675,
+      "sha256": "796576cd9a09e327484069d5db1007be94b776c7150bdc067948b16bf5a7baa4"
+    },
+    {
+      "path": "overlay/packages/apps/Settings/res/drawable/borealis_header_background.xml",
+      "bytes": 329,
+      "sha256": "d46b351afafca701ad564c319e6eaaa66094d8f9626a54d631d1f09a3adb8567"
+    },
+    {
+      "path": "overlay/packages/apps/Settings/res/drawable/ic_borealis.xml",
+      "bytes": 348,
+      "sha256": "9b74014de5e78befea86a9fc4ba89bcb7d42c7f46ac3d49b954ec5c0032b5f54"
+    },
+    {
+      "path": "overlay/packages/apps/Settings/res/font/borealis_orbit.ttf",
+      "bytes": 78800,
+      "sha256": "ed72b727c86489438e3cb27b080b664dfb105e378aacecea0816aa1c6bc35869"
+    },
+    {
+      "path": "overlay/packages/apps/Settings/res/layout/borealis_performance_header.xml",
+      "bytes": 1268,
+      "sha256": "9e5d744e5dbc067ab3b5d3628dbd4096804fa6abc33a61e907a7b5b4394af2f5"
+    },
+    {
+      "path": "overlay/packages/apps/Settings/res/values/borealis_graphics_strings.xml",
+      "bytes": 3181,
+      "sha256": "15cadbf8984ba33ee3d83e1d2e2129ce07cc9a46e0114a107406d7e81c705d45"
+    },
+    {
+      "path": "overlay/packages/apps/Settings/res/values/borealis_strings.xml",
+      "bytes": 4149,
+      "sha256": "85dc3372deecbaf38374d7a48d8be040c4458cb1a93ecbf6409ea8bdf8a5151e"
+    },
+    {
+      "path": "overlay/packages/apps/Settings/res/values/borealis_v2_strings.xml",
+      "bytes": 302,
+      "sha256": "889f3d323f3d8a0bfb26b591c564a8e74e82451b1ebbc8060db760154661ce69"
+    },
+    {
+      "path": "overlay/packages/apps/Settings/src/com/android/settings/borealis/BorealisGraphicsPreferences.java",
+      "bytes": 8344,
+      "sha256": "b09aed1415be1a9302162ef2e0a683379467cd81f17e61243d9d6fe4e49464eb"
+    },
+    {
+      "path": "overlay/packages/apps/Settings/src/com/android/settings/borealis/BorealisPerformanceSettings.java",
+      "bytes": 14567,
+      "sha256": "301c8269a9e6eb00d86c282a7bf9963d85f7b0b5770f0e2f967b91d1a1305ca1"
+    },
+    {
+      "path": "overlay/system/sepolicy/private/borealis_graphics.te",
+      "bytes": 834,
+      "sha256": "ca708a4afffbf9e950c9a78681aade3b7d8702fd44e300ccfb2c0607413d3631"
+    },
+    {
+      "path": "overlay/vendor/borealis/apps/BorealisSpace/Android.bp",
+      "bytes": 281,
+      "sha256": "74f009b60062c917023f94008549df4c1e9bb3baaf9cf2924dcdd2119608fef8"
+    },
+    {
+      "path": "overlay/vendor/borealis/apps/BorealisSpace/AndroidManifest.xml",
+      "bytes": 756,
+      "sha256": "5194dbcb75064bc77b189b4ac42299104ba368a80347c5ae7ebb93696aa8fab9"
+    },
+    {
+      "path": "overlay/vendor/borealis/apps/BorealisSpace/build-app.sh",
+      "bytes": 1643,
+      "sha256": "2361e08b4c8d7503eace0d7cb4e0080c37961b34d9c2a789bea1a69b9311dd01"
+    },
+    {
+      "path": "overlay/vendor/borealis/apps/BorealisSpace/res/drawable/ic_orbit.xml",
+      "bytes": 549,
+      "sha256": "e620c1fa23be0393d99e7a92302dbbf761e109e2ab6a719234ba485cc9474aef"
+    },
+    {
+      "path": "overlay/vendor/borealis/apps/BorealisSpace/res/drawable-nodpi/cosmic_wallpaper.png",
+      "bytes": 163076,
+      "sha256": "1b2238e0b42acf711a7408a57acd3f4a209227fadd190c61dab27e3f520cc7ad"
+    },
+    {
+      "path": "overlay/vendor/borealis/apps/BorealisSpace/res/font/borealis_orbit.ttf",
+      "bytes": 78800,
+      "sha256": "ed72b727c86489438e3cb27b080b664dfb105e378aacecea0816aa1c6bc35869"
+    },
+    {
+      "path": "overlay/vendor/borealis/apps/BorealisSpace/res/values/colors.xml",
+      "bytes": 431,
+      "sha256": "339831d211852ce3952c99aa11617a5eb896ce97b0efb8eee9ee69d51ce54e2b"
+    },
+    {
+      "path": "overlay/vendor/borealis/apps/BorealisSpace/res/values/strings.xml",
+      "bytes": 2939,
+      "sha256": "fed2a0c80f8bc926fffbfe8d31b9403f506b0a0ec551f2f6d8a10d50820dc604"
+    },
+    {
+      "path": "overlay/vendor/borealis/apps/BorealisSpace/res/values/styles.xml",
+      "bytes": 1009,
+      "sha256": "0f7b058b135a56cd47801342ac42d664bc8676fb774749999c59da277b69f191"
+    },
+    {
+      "path": "overlay/vendor/borealis/apps/BorealisSpace/res/values-night/colors.xml",
+      "bytes": 431,
+      "sha256": "5cdb022e59a35f4d731fe92e1eb4ce939e4b4515233872cf05015ea16b33cba7"
+    },
+    {
+      "path": "overlay/vendor/borealis/apps/BorealisSpace/res/values-night/styles.xml",
+      "bytes": 842,
+      "sha256": "f3fcb6842b10bc3a0d3d91ac88c14df0c67119d436c2abe180b3ff35bf4e79e1"
+    },
+    {
+      "path": "overlay/vendor/borealis/apps/BorealisSpace/src/org/borealis/space/BorealisMotion.java",
+      "bytes": 3069,
+      "sha256": "e764205f09063abfe39355edbab34de67b6654c663b454799d17d57d510fae0a"
+    },
+    {
+      "path": "overlay/vendor/borealis/apps/BorealisSpace/src/org/borealis/space/MainActivity.java",
+      "bytes": 12816,
+      "sha256": "f66f6f47c2f099af9e99b5271f526ff2da7fdcacc82b84e95e7686bc076fe5ff"
+    },
+    {
+      "path": "overlay/vendor/borealis/apps/NebulaControl/Android.bp",
+      "bytes": 165,
+      "sha256": "933719bb6959e2315d597afcf6ccbf21cd0b256ac9792c18e55594f0c877e550"
+    },
+    {
+      "path": "overlay/vendor/borealis/compat/Android.bp",
+      "bytes": 237,
+      "sha256": "515c164317cdb0983cb421003beaf7870d919706b542b8096b92f8455dc8b15b"
+    },
+    {
+      "path": "overlay/vendor/borealis/compat/protobuf391/Android.bp",
+      "bytes": 1378,
+      "sha256": "6e3561ed80ac67a6631c321fdacc8785b284ff3957f9f9de2f062d34f3cd071b"
+    },
+    {
+      "path": "overlay/vendor/borealis/compat/protobuf391/LICENSE",
+      "bytes": 1732,
+      "sha256": "6e5e117324afd944dcf67f36cf329843bc1a92229a8cd9bb573d7a83130fea7d"
+    },
+    {
+      "path": "overlay/vendor/borealis/config/common.mk",
+      "bytes": 1734,
+      "sha256": "ecf477691c92432343e61263dfe1337fa5a64958febe770932707ef927ea0ddf"
+    },
+    {
+      "path": "overlay/vendor/borealis/fonts/BorealisOrbit-Regular.ttf",
+      "bytes": 78800,
+      "sha256": "ed72b727c86489438e3cb27b080b664dfb105e378aacecea0816aa1c6bc35869"
+    },
+    {
+      "path": "overlay/vendor/borealis/fonts/fonts_customization.xml",
+      "bytes": 243,
+      "sha256": "2c1f8bebd4fbe190e93eda82280622521973bf44f3ed8f8c758a770ae24c2f2c"
+    },
+    {
+      "path": "overlay/vendor/borealis/graphics/borealis-graphics.rc",
+      "bytes": 168,
+      "sha256": "443fd33fc02333f9eaabbd2ff66bfd2f98cb6ff5fcd1ab3bbf4848b866d0816d"
+    },
+    {
+      "path": "overlay/vendor/borealis/graphics/LICENSE-FSR.txt",
+      "bytes": 1094,
+      "sha256": "db089274ce766da70f5b7d791029c3486f9f9e27c8c79c652689603d3192e802"
+    },
+    {
+      "path": "overlay/vendor/borealis/graphics/shaders/easu.sksl",
+      "bytes": 3303,
+      "sha256": "a6211a61353fe2ff547b740517ad90265f4d6241b8177818c90b90e15a314aa7"
+    },
+    {
+      "path": "overlay/vendor/borealis/graphics/shaders/flow.sksl",
+      "bytes": 1717,
+      "sha256": "e4dbfee6951f34fe708157a0a461f03962dc8aec935c707c253479ae57328eab"
+    },
+    {
+      "path": "overlay/vendor/borealis/graphics/shaders/interpolate.sksl",
+      "bytes": 1039,
+      "sha256": "29d399ac1ab4a491dc14a89d817af6e6396207f84638a13573f101945304db1c"
+    },
+    {
+      "path": "overlay/vendor/borealis/graphics/shaders/rcas.sksl",
+      "bytes": 1274,
+      "sha256": "f2895b3ec0cf2319305dd547c4263d917e8f7c4a44cee2a3da8981e4a0f8454e"
+    },
+    {
+      "path": "overlay/vendor/borealis/graphics/upstream.json",
+      "bytes": 458,
+      "sha256": "9e30c9b4ad85323653c0d1c07036cd765b7eb5b9df39cb517faf659f7680565f"
+    },
+    {
+      "path": "overlay/vendor/borealis/overlay/base/frameworks/base/core/res/res/drawable-nodpi/default_wallpaper.png",
+      "bytes": 163076,
+      "sha256": "1b2238e0b42acf711a7408a57acd3f4a209227fadd190c61dab27e3f520cc7ad"
+    },
+    {
+      "path": "overlay/vendor/borealis/overlay/base/frameworks/base/core/res/res/values/borealis_colors.xml",
+      "bytes": 1593,
+      "sha256": "67cfcad4e952dab3d79e9ce5ea7d61500166cb9427e41d3a279a0cac6ff06256"
+    },
+    {
+      "path": "overlay/vendor/borealis/overlay/base/frameworks/base/core/res/res/values/config.xml",
+      "bytes": 434,
+      "sha256": "e1d2f5ddbabdac87aadaaedb305727fd82f8f6f8374e6c943b2c710693b64a6a"
+    },
+    {
+      "path": "overlay/vendor/borealis/overlay/base/frameworks/base/packages/SystemUI/res/color/borealis_power_content.xml",
+      "bytes": 268,
+      "sha256": "53066e1d275c6500effea9f87aba1983b820e7eb3c6ac65e155311b299a4b132"
+    },
+    {
+      "path": "overlay/vendor/borealis/overlay/base/frameworks/base/packages/SystemUI/res/drawable/borealis_power_button.xml",
+      "bytes": 678,
+      "sha256": "76faf3d1531368cdbf85af3ad85ce79b52ea1a6f55c28f8d8f25378935e96cd7"
+    },
+    {
+      "path": "overlay/vendor/borealis/overlay/base/frameworks/base/packages/SystemUI/res/drawable/borealis_power_card.xml",
+      "bytes": 678,
+      "sha256": "f0b077604d0a83e8516e240fc538836fe2c837d7b478fbab3f7c0d4bdcd82189"
+    },
+    {
+      "path": "overlay/vendor/borealis/overlay/base/frameworks/base/packages/SystemUI/res/drawable/volume_dialog_background.xml",
+      "bytes": 969,
+      "sha256": "0fe872545d1257c18af47c55178d003b8dd79b1629da50c3109ec0c8e54136d9"
+    },
+    {
+      "path": "overlay/vendor/borealis/overlay/base/frameworks/base/packages/SystemUI/res/drawable/volume_row_seekbar_progress.xml",
+      "bytes": 1798,
+      "sha256": "997631c530c669c156d9e28724b204835106e9137b25fc5282f8226bfb8790ed"
+    },
+    {
+      "path": "overlay/vendor/borealis/overlay/base/frameworks/base/packages/SystemUI/res/layout/global_actions_grid_item_lite.xml",
+      "bytes": 2014,
+      "sha256": "d85820d032c355fd864b90880ec957bcc2166145bc1e0028ce82aaeb250416b6"
+    },
+    {
+      "path": "overlay/vendor/borealis/overlay/base/frameworks/base/packages/SystemUI/res/layout/global_actions_grid_item_v2.xml",
+      "bytes": 2198,
+      "sha256": "9dda23d52dcccdaf0b20af7a29c7d20b1e6cb6aded4a7fbde0ed0b4d947283f5"
+    },
+    {
+      "path": "overlay/vendor/borealis/overlay/base/frameworks/base/packages/SystemUI/res/values/borealis_dimens.xml",
+      "bytes": 591,
+      "sha256": "b132eaba74c307dd56a9421591a7593cbce081f1695e82486a55645583b65918"
+    },
+    {
+      "path": "overlay/vendor/borealis/overlay/base/frameworks/base/packages/SystemUI/res/values/borealis_native_colors.xml",
+      "bytes": 1180,
+      "sha256": "5f9053f7e9c7f1bd617e4cb80868e064b3c87b14cdda10e79d241d91f713588d"
+    },
+    {
+      "path": "overlay/vendor/borealis/overlay/base/frameworks/base/packages/SystemUI/res/values/borealis_systemui_interaction.xml",
+      "bytes": 123,
+      "sha256": "4ab6ea7455e60e40e7037ca6141950479e1b556167f6a6539d4d3c1d4c0fe0d8"
+    },
+    {
+      "path": "overlay/vendor/borealis/overlay/base/frameworks/base/packages/SystemUI/res/values-night/borealis_native_colors.xml",
+      "bytes": 1180,
+      "sha256": "37fde263758534b5cadc35a146c308049b1aed020424efb7e0f5b93f1d1dff4c"
+    },
+    {
+      "path": "overlay/vendor/borealis/overlay/base/frameworks/base/packages/SystemUI/res/values-night/borealis_systemui_interaction.xml",
+      "bytes": 123,
+      "sha256": "af490be90bfce15932fe2f660b15250aad7ddbe90064d3b8f4061748f9a1f49b"
+    },
+    {
+      "path": "overlay/vendor/borealis/overlay/base/packages/apps/Camera2/res/values/borealis_native_colors.xml",
+      "bytes": 1401,
+      "sha256": "2528cb3148b04a70846b6a76d8cea9408599458f58bcdb42b36129ab765aec43"
+    },
+    {
+      "path": "overlay/vendor/borealis/overlay/base/packages/apps/Camera2/res/values/borealis_native_themes.xml",
+      "bytes": 2824,
+      "sha256": "cf2addb90dabfb7a46bf731a02cbe5733a8f428020ad7e9bce8bc3b1b109e76e"
+    },
+    {
+      "path": "overlay/vendor/borealis/overlay/base/packages/apps/Camera2/res/values-night/borealis_native_colors.xml",
+      "bytes": 1401,
+      "sha256": "a85467735d6f5119b3a85f6c14ae96c1ec474762c35ce7de8d47f752782fecad"
+    },
+    {
+      "path": "overlay/vendor/borealis/overlay/base/packages/apps/Camera2/res/values-night/borealis_native_themes.xml",
+      "bytes": 2824,
+      "sha256": "cf2addb90dabfb7a46bf731a02cbe5733a8f428020ad7e9bce8bc3b1b109e76e"
+    },
+    {
+      "path": "overlay/vendor/borealis/overlay/base/packages/apps/Contacts/res/values/borealis_native_colors.xml",
+      "bytes": 1969,
+      "sha256": "8d2ac0ac5497dd4f261554cdb8a3abf3f8f9562aaed20a33e2111915fc9da2fb"
+    },
+    {
+      "path": "overlay/vendor/borealis/overlay/base/packages/apps/Contacts/res/values/borealis_native_themes.xml",
+      "bytes": 3030,
+      "sha256": "e1aa794b2209f2e614975706daf6ef8f3070894db8432f5db871d9e734ab67f8"
+    },
+    {
+      "path": "overlay/vendor/borealis/overlay/base/packages/apps/Contacts/res/values-night/borealis_native_colors.xml",
+      "bytes": 1969,
+      "sha256": "c7b00af743c79e721d1efc01098d2a75d2f602d2409d787e7733f842733e3233"
+    },
+    {
+      "path": "overlay/vendor/borealis/overlay/base/packages/apps/Contacts/res/values-night/borealis_native_themes.xml",
+      "bytes": 3034,
+      "sha256": "7c403f13171d878962d1abf999052e6ef4314550b26cf979b9dc2cb0663fd84a"
+    },
+    {
+      "path": "overlay/vendor/borealis/overlay/base/packages/apps/DeskClock/res/values/borealis_native_colors.xml",
+      "bytes": 934,
+      "sha256": "9f0d975fd99d2282ba15dc116f8dbf216686ed6cc67b70156daa2082df6e9d46"
+    },
+    {
+      "path": "overlay/vendor/borealis/overlay/base/packages/apps/DeskClock/res/values/borealis_native_themes.xml",
+      "bytes": 6311,
+      "sha256": "d1f25bdec0e428988425bd5708e40ee1cb27c687d0409356f0adf173087b1389"
+    },
+    {
+      "path": "overlay/vendor/borealis/overlay/base/packages/apps/DeskClock/res/values-night/borealis_native_colors.xml",
+      "bytes": 934,
+      "sha256": "ac294919ab93ca14d2a811c804b88870311f0bcd96fc1923e427d7841bfad3b0"
+    },
+    {
+      "path": "overlay/vendor/borealis/overlay/base/packages/apps/DeskClock/res/values-night/borealis_native_themes.xml",
+      "bytes": 6319,
+      "sha256": "15a59f8755f59a40eef425c3bafa92a2c08ef52b614cc461d24530da84265efe"
+    },
+    {
+      "path": "overlay/vendor/borealis/overlay/base/packages/apps/Dialer/java/com/android/dialer/theme/base/res/values/borealis_native_colors.xml",
+      "bytes": 883,
+      "sha256": "c20a7457de7af96cfc790b058bbc92e2753c0ef8b0a16f368be765a1c1e68dc9"
+    },
+    {
+      "path": "overlay/vendor/borealis/overlay/base/packages/apps/Dialer/java/com/android/dialer/theme/base/res/values/borealis_native_themes.xml",
+      "bytes": 6953,
+      "sha256": "707fa346822d3585344bbf47381da4deab52b0edae0dc1feef72cdc2e490b494"
+    },
+    {
+      "path": "overlay/vendor/borealis/overlay/base/packages/apps/Dialer/java/com/android/dialer/theme/base/res/values-night/borealis_native_colors.xml",
+      "bytes": 883,
+      "sha256": "82713f47b0a61dceb0131cce71b97d0088f7416ee793acc207fd1f0678580215"
+    },
+    {
+      "path": "overlay/vendor/borealis/overlay/base/packages/apps/Dialer/java/com/android/dialer/theme/base/res/values-night/borealis_native_themes.xml",
+      "bytes": 6963,
+      "sha256": "e1d9c3882f60f902030ea95153a87d67809a1a279a679f1f2027502e166b466a"
+    },
+    {
+      "path": "overlay/vendor/borealis/overlay/base/packages/apps/Dialer/java/com/android/dialer/theme/common/res/values/borealis_native_colors.xml",
+      "bytes": 1107,
+      "sha256": "565decb0af9fa57ece9a19d88de5c9344764a69ca1be88e3fb26307c2946ab1d"
+    },
+    {
+      "path": "overlay/vendor/borealis/overlay/base/packages/apps/Dialer/java/com/android/dialer/theme/common/res/values-night/borealis_native_colors.xml",
+      "bytes": 1107,
+      "sha256": "f998575ace15f90f366ed0e6b64524e56c538c986638935761ad2e9be44acd57"
+    },
+    {
+      "path": "overlay/vendor/borealis/overlay/base/packages/apps/Dialer/java/com/android/dialer/theme/hidden/res/color/dialer_dark_primary_text_color.xml",
+      "bytes": 221,
+      "sha256": "3754b97e54786f432d3546142750670a248c02e810383972009de90410654d3d"
+    },
+    {
+      "path": "overlay/vendor/borealis/overlay/base/packages/apps/Dialer/java/com/android/dialer/theme/hidden/res/color/dialer_dark_secondary_text_color.xml",
+      "bytes": 221,
+      "sha256": "02e20e62246375edd1dc8bce6f6345ecabd82a65712f07e6ddd53432c0cfd173"
+    },
+    {
+      "path": "overlay/vendor/borealis/overlay/base/packages/apps/Dialer/java/com/android/dialer/theme/hidden/res/color/dialer_primary_text_color.xml",
+      "bytes": 221,
+      "sha256": "9ab1b7cfa837fc0d383936ae78e6f9cd703e4af8025f990adbe590ffed63dcde"
+    },
+    {
+      "path": "overlay/vendor/borealis/overlay/base/packages/apps/Dialer/java/com/android/dialer/theme/hidden/res/color/dialer_secondary_text_color.xml",
+      "bytes": 221,
+      "sha256": "38e1e39fa41b97e64d88c0c3c0000522596dabc5940e13228d5986d0a514d7f5"
+    },
+    {
+      "path": "overlay/vendor/borealis/overlay/base/packages/apps/Dialer/java/com/android/dialer/theme/hidden/res/color-night/dialer_dark_primary_text_color.xml",
+      "bytes": 221,
+      "sha256": "3754b97e54786f432d3546142750670a248c02e810383972009de90410654d3d"
+    },
+    {
+      "path": "overlay/vendor/borealis/overlay/base/packages/apps/Dialer/java/com/android/dialer/theme/hidden/res/color-night/dialer_dark_secondary_text_color.xml",
+      "bytes": 221,
+      "sha256": "02e20e62246375edd1dc8bce6f6345ecabd82a65712f07e6ddd53432c0cfd173"
+    },
+    {
+      "path": "overlay/vendor/borealis/overlay/base/packages/apps/Dialer/java/com/android/dialer/theme/hidden/res/color-night/dialer_primary_text_color.xml",
+      "bytes": 221,
+      "sha256": "3754b97e54786f432d3546142750670a248c02e810383972009de90410654d3d"
+    },
+    {
+      "path": "overlay/vendor/borealis/overlay/base/packages/apps/Dialer/java/com/android/dialer/theme/hidden/res/color-night/dialer_secondary_text_color.xml",
+      "bytes": 221,
+      "sha256": "02e20e62246375edd1dc8bce6f6345ecabd82a65712f07e6ddd53432c0cfd173"
+    },
+    {
+      "path": "overlay/vendor/borealis/overlay/base/packages/apps/Dialer/java/com/android/dialer/theme/hidden/res/values/borealis_native_colors.xml",
+      "bytes": 1278,
+      "sha256": "0f3a3f6afcb81de5b1eab2f80f64b400be33902fd2a92148bb8b0b22185f954f"
+    },
+    {
+      "path": "overlay/vendor/borealis/overlay/base/packages/apps/Dialer/java/com/android/dialer/theme/hidden/res/values/borealis_native_themes.xml",
+      "bytes": 3726,
+      "sha256": "92dd1d8eee98651174165189574dba930cbfad1d744e754d2dee86742988bcc2"
+    },
+    {
+      "path": "overlay/vendor/borealis/overlay/base/packages/apps/Dialer/java/com/android/dialer/theme/hidden/res/values-night/borealis_native_colors.xml",
+      "bytes": 1278,
+      "sha256": "55f2e049d7fbc4021b155b48d1f542b199b2d1d2a9ed9d0c2a18ae2fbf241777"
+    },
+    {
+      "path": "overlay/vendor/borealis/overlay/base/packages/apps/Dialer/java/com/android/dialer/theme/hidden/res/values-night/borealis_native_themes.xml",
+      "bytes": 3730,
+      "sha256": "38e727245d45936a6ee45b0186ccd9dbccb9e7c060b04d4d21ac15c51c0f87b0"
+    },
+    {
+      "path": "overlay/vendor/borealis/overlay/base/packages/apps/DocumentsUI/res/values/borealis_native_colors.xml",
+      "bytes": 1369,
+      "sha256": "efd610c0daf1ff3173ba68142ef6a1566422d15208f03237a0eb7fa20d768a11"
+    },
+    {
+      "path": "overlay/vendor/borealis/overlay/base/packages/apps/DocumentsUI/res/values/borealis_native_themes.xml",
+      "bytes": 1153,
+      "sha256": "06d9e9bc9094cd84d4437fcff7cc0f947085ebcf19d393f0acdff5d08d0b3f71"
+    },
+    {
+      "path": "overlay/vendor/borealis/overlay/base/packages/apps/DocumentsUI/res/values-night/borealis_native_colors.xml",
+      "bytes": 1369,
+      "sha256": "36140cdf760cac5bd27b25fd190431ce62534d1daf84e7d709ee52dca478ed55"
+    },
+    {
+      "path": "overlay/vendor/borealis/overlay/base/packages/apps/DocumentsUI/res/values-night/borealis_native_themes.xml",
+      "bytes": 1155,
+      "sha256": "148d91d15eda8eb2951ebf927e1c3db68e1422026219e1a479bae6c546374c4e"
+    },
+    {
+      "path": "overlay/vendor/borealis/overlay/base/packages/apps/Gallery2/res/values/borealis_native_colors.xml",
+      "bytes": 1295,
+      "sha256": "bfda64023d1244fc1674a6cbb116d2dd6c5d9d7344722f6ab069e78176d9d32d"
+    },
+    {
+      "path": "overlay/vendor/borealis/overlay/base/packages/apps/Gallery2/res/values/borealis_native_themes.xml",
+      "bytes": 8071,
+      "sha256": "38335d99e787029c985aef2a928d8ab052a2c54f26f30ded65a2602163c02b57"
+    },
+    {
+      "path": "overlay/vendor/borealis/overlay/base/packages/apps/Gallery2/res/values-night/borealis_native_colors.xml",
+      "bytes": 1295,
+      "sha256": "32abe071c75fa00b858772a4be1722082358724a1fc906ad4142ff993112bed3"
+    },
+    {
+      "path": "overlay/vendor/borealis/overlay/base/packages/apps/Gallery2/res/values-night/borealis_native_themes.xml",
+      "bytes": 8087,
+      "sha256": "927dce4d09c214a3009adb7f47f88b6a4e7edbcb74f6af0b10816590d1d4d5a4"
+    },
+    {
+      "path": "overlay/vendor/borealis/overlay/base/packages/apps/Launcher3/res/values/borealis_native_colors.xml",
+      "bytes": 1571,
+      "sha256": "b7f40b378b80d2169f7820b164a44ba956ba7679d2b2ad47507bc6828cbfc595"
+    },
+    {
+      "path": "overlay/vendor/borealis/overlay/base/packages/apps/Launcher3/res/values-night/borealis_native_colors.xml",
+      "bytes": 1571,
+      "sha256": "9a68f58d1f7d01801e88a399ed850f8c158e823acbd4c7c0f625fe54c69c00b1"
+    },
+    {
+      "path": "overlay/vendor/borealis/overlay/base/packages/apps/Messaging/res/drawable/borealis_compose_field.xml",
+      "bytes": 301,
+      "sha256": "b3bc8f21fe30be79aa96f82b42be2e60f0b87c87327c3fdbfa6081da662521ee"
+    },
+    {
+      "path": "overlay/vendor/borealis/overlay/base/packages/apps/Messaging/res/drawable/borealis_conversation_card.xml",
+      "bytes": 514,
+      "sha256": "9d23cebe1bf33ab2b3b728e65947ea38d1689e3afe37ff3dbf5aaa25ea17c4ef"
+    },
+    {
+      "path": "overlay/vendor/borealis/overlay/base/packages/apps/Messaging/res/drawable/borealis_message_fab.xml",
+      "bytes": 320,
+      "sha256": "efd08a3ce5821b1d23a724301336ef0d51726d5806601747560b3747b2a357ef"
+    },
+    {
+      "path": "overlay/vendor/borealis/overlay/base/packages/apps/Messaging/res/layout/compose_message_view.xml",
+      "bytes": 6542,
+      "sha256": "4e5f7b9a657a3ece87d29d4cabad5017142d249060aa4f6be960dbac7f5d40f4"
+    },
+    {
+      "path": "overlay/vendor/borealis/overlay/base/packages/apps/Messaging/res/layout/conversation_list_fragment.xml",
+      "bytes": 1353,
+      "sha256": "ffd6c09b55f1b780127bf6a3eab7d6d2cdbd9ef1c9f41f5e2464db143f2e279f"
+    },
+    {
+      "path": "overlay/vendor/borealis/overlay/base/packages/apps/Messaging/res/layout/conversation_list_item_view.xml",
+      "bytes": 7434,
+      "sha256": "55b8e38832b9aff092d092e816c7d434102c8baccb5351a7e96c0847fa45ec41"
+    },
+    {
+      "path": "overlay/vendor/borealis/overlay/base/packages/apps/Messaging/res/values/borealis_native_colors.xml",
+      "bytes": 3025,
+      "sha256": "e41b9a95fcceb3291b5025809d0504fc71dba3718985a950ae1033a66e40e2e4"
+    },
+    {
+      "path": "overlay/vendor/borealis/overlay/base/packages/apps/Messaging/res/values-night/borealis_native_colors.xml",
+      "bytes": 3025,
+      "sha256": "a9ec78660ce51751249c977000e723ab120fd0bc3882b75981b0f5af170f555c"
+    },
+    {
+      "path": "overlay/vendor/borealis/overlay/base/packages/apps/Settings/res/layout/settings_homepage_container.xml",
+      "bytes": 3543,
+      "sha256": "8204e9940142e4bdd751b27255feb36e1f1794210ab31dcd005bf6e0acd9d426"
+    },
+    {
+      "path": "overlay/vendor/borealis/overlay/base/packages/apps/Settings/res/values/borealis_brand.xml",
+      "bytes": 203,
+      "sha256": "582e4a9124d3f79a56786cb370f5d19e0e472bf33af79ab459be8daef3b766bb"
+    },
+    {
+      "path": "overlay/vendor/borealis/overlay/base/packages/apps/Settings/res/values/borealis_home.xml",
+      "bytes": 298,
+      "sha256": "131675073df5677b1ce34667ceafeb11a6068b7da585728e913e980d2f907ab7"
+    },
+    {
+      "path": "overlay/vendor/borealis/overlay/base/packages/apps/Settings/res/values/borealis_native_colors.xml",
+      "bytes": 1656,
+      "sha256": "9ffeec9541a5afd59fef9e1d7b2f348db8a734327ff105e17e1b0bac781dc94d"
+    },
+    {
+      "path": "overlay/vendor/borealis/overlay/base/packages/apps/Settings/res/values-es/borealis_home.xml",
+      "bytes": 302,
+      "sha256": "01ad8befe6026e210d3df34954af0b5c97904c83497784add7c671f379fbe376"
+    },
+    {
+      "path": "overlay/vendor/borealis/overlay/base/packages/apps/Settings/res/values-night/borealis_native_colors.xml",
+      "bytes": 1656,
+      "sha256": "6eee0cc4d7958aa482e3903fc2edd2eee4a38d173c1857f994fe3c31f26a0943"
+    },
+    {
+      "path": "overlay/vendor/borealis/overlay/base/packages/apps/Settings/res/values-pt-rBR/borealis_brand.xml",
+      "bytes": 203,
+      "sha256": "582e4a9124d3f79a56786cb370f5d19e0e472bf33af79ab459be8daef3b766bb"
+    },
+    {
+      "path": "overlay/vendor/borealis/overlay/base/packages/apps/Settings/res/values-pt-rBR/borealis_home.xml",
+      "bytes": 305,
+      "sha256": "b89f67200719711fb4109388239ba1f9217ec3beb0421c54ff0ab8401cd51631"
+    },
+    {
+      "path": "overlay/vendor/borealis/overlay/base/packages/inputmethods/LatinIME/java/res/values/borealis_native_colors.xml",
+      "bytes": 1804,
+      "sha256": "ccd1bc7d2e5d2d3968b8f3ed8d48bee3bfa2e29da2b43b2c13d69418840ebed0"
+    },
+    {
+      "path": "overlay/vendor/borealis/overlay/base/packages/inputmethods/LatinIME/java/res/values-night/borealis_native_colors.xml",
+      "bytes": 1804,
+      "sha256": "5678a383877d343c8b5b2c734e86ed18529c7c9bf4bc1799e5e2b06575820ae9"
+    },
+    {
+      "path": "overlay/vendor/borealis/performance/Android.bp",
+      "bytes": 217,
+      "sha256": "ef855212f3e7f483e9cc4ce43ce10765cf5cd1313fa7fc76dccaf13716b96b68"
+    },
+    {
+      "path": "overlay/vendor/borealis/performance/borealis-perf.rc",
+      "bytes": 483,
+      "sha256": "29d22ee17ddc737ea8b6e473238f2c08ceaf658cefe49d0782120872687aae6b"
+    },
+    {
+      "path": "overlay/vendor/borealis/performance/engine.cpp",
+      "bytes": 12423,
+      "sha256": "c544a1b8c817fbf9ae3af2f4b5b55c78ffeb52ed61f4d55c29cca0ef5e1e1d5f"
+    },
+    {
+      "path": "overlay/vendor/borealis/performance/engine.h",
+      "bytes": 1262,
+      "sha256": "5770cf3297a9e0cc16b75083ad905be9f64329d4b35db8a4799ec124e9450046"
+    },
+    {
+      "path": "overlay/vendor/borealis/performance/main.cpp",
+      "bytes": 3375,
+      "sha256": "022cc8b2dae510345e30b9ee32241cd4b78007a98b32b4bf02dc9ae99887468a"
+    },
+    {
+      "path": "overlay/vendor/borealis/sepolicy/system_ext/private/property_contexts",
+      "bytes": 132,
+      "sha256": "bc777d50cb92d64b944667ce0d88661f3fe1d976d9f311a66adb93d1b06a20cf"
+    },
+    {
+      "path": "overlay/vendor/borealis/sepolicy/system_ext/private/system_app.te",
+      "bytes": 610,
+      "sha256": "7cbca47668d0f2f3bbd7a9ecfdac30ef6685abd5fed61fe1b13fd6984fa8c97a"
+    },
+    {
+      "path": "overlay/vendor/borealis/sepolicy/system_ext/public/property.te",
+      "bytes": 654,
+      "sha256": "3a40f18e0e77d6236095f1e48653678c30cc283a4cd5259b2670c59d2bb471fa"
+    },
+    {
+      "path": "overlay/vendor/borealis/sepolicy/vendor/borealis_perf.te",
+      "bytes": 2994,
+      "sha256": "ad9bd4362908bea39d6a70ecbfd640a9510653eafe51fdca16a433bc59ae3c72"
+    },
+    {
+      "path": "overlay/vendor/borealis/sepolicy/vendor/file_contexts",
+      "bytes": 125,
+      "sha256": "187ef775c78d229a2594a7071609cdf106bdb589a1cecea57c0e3d176e15860a"
+    },
+    {
+      "path": "overlay/vendor/borealis/sepolicy/vendor/genfs_contexts",
+      "bytes": 197,
+      "sha256": "14c4025c1506d79a65b8b3ec343abdbff5e1fb0ec72735af12dc543c9192de39"
+    },
+    {
+      "path": "overlay/vendor/borealis/sepolicy/vendor/property_contexts",
+      "bytes": 247,
+      "sha256": "c9d3848c36817b163b700e86a5d35beabada6922c26ef91f378a885f7e6ab206"
+    },
+    {
+      "path": "patches/checkouts/bootable__deprecated-ota.patch",
+      "bytes": 339,
+      "sha256": "5e32c92a576ecbd550f735e33d2f65153515e4390994d4d518965ff878661803"
+    },
+    {
+      "path": "patches/checkouts/build__blueprint.patch",
+      "bytes": 608,
+      "sha256": "2486170599fb332b807765d03c476408d6f984bf39b18127e567f4cf794b848b"
+    },
+    {
+      "path": "patches/checkouts/build__make.patch",
+      "bytes": 957,
+      "sha256": "b8a095224d1c71dd016caf78782808c8178938fa26141cafecc968c5fd6d59a3"
+    },
+    {
+      "path": "patches/checkouts/build__soong.patch",
+      "bytes": 705,
+      "sha256": "bbe29dc03a7af395819dfc1e28c9480155e4678aea135528bc6509570e5065c3"
+    },
+    {
+      "path": "patches/checkouts/device__samsung__a30.patch",
+      "bytes": 1979,
+      "sha256": "3e0a7ff34490dba8b42e7b4724aa9d872c40a09951350917c7c43f9ff8de4078"
+    },
+    {
+      "path": "patches/checkouts/device__samsung__exynos7885-common.patch",
+      "bytes": 4924,
+      "sha256": "324023d3ff4555041fdbaa8dfeb8186fbba1353a5172e5881e6bd3742534faec"
+    },
+    {
+      "path": "patches/checkouts/device__samsung_slsi__sepolicy.patch",
+      "bytes": 5353,
+      "sha256": "420a9bff6942153fa1f97b0347504002729af1bfc19797ef6241dd18bf1c8eb4"
+    },
+    {
+      "path": "patches/checkouts/frameworks__base.patch",
+      "bytes": 770,
+      "sha256": "7e29c13f84c4b273c54f67ea0f86eea8dbb500ee8733ad954b401eb201e82b23"
+    },
+    {
+      "path": "patches/checkouts/frameworks__native.patch",
+      "bytes": 13957,
+      "sha256": "c6e4f9bdd5723af36f8a2b8ac10ceaf3b83bf54ccedb098aa2e69ba98f45e84f"
+    },
+    {
+      "path": "patches/checkouts/hardware__google__pixel.patch",
+      "bytes": 12373,
+      "sha256": "a29fd03ab3d5369246d5bb64a25345336669362101e43bdd7222992612c9163d"
+    },
+    {
+      "path": "patches/checkouts/hardware__lineage__compat.patch",
+      "bytes": 21628,
+      "sha256": "0f9c7b621da23a999bfc067c232fc9cdabc78dc51a4340605e57202691064159"
+    },
+    {
+      "path": "patches/checkouts/hardware__samsung.patch",
+      "bytes": 148228,
+      "sha256": "c27ab70d0245637d2034b44c1c57dfd1a646e4729fa03aa26544cb65739b15ba"
+    },
+    {
+      "path": "patches/checkouts/hardware__samsung_slsi-linaro__exynos.patch",
+      "bytes": 15461,
+      "sha256": "a32f726a7beafb0aec23b4cb61cbf664cd9c1035f25532d7f06ee5bebe505735"
+    },
+    {
+      "path": "patches/checkouts/packages__apps__Settings.patch",
+      "bytes": 2641,
+      "sha256": "38becd0beae7a7bb699af5c77dd738dec76e65681d31777a6bdc9b8609c2426c"
+    },
+    {
+      "path": "patches/checkouts/system__core.patch",
+      "bytes": 7634,
+      "sha256": "6738cd7e4dce686204056194bf4a414dc0a9d427a8ee4f28a16c098b2f0b9ebc"
+    },
+    {
+      "path": "patches/checkouts/system__sepolicy.patch",
+      "bytes": 969,
+      "sha256": "1eb15e40adbbf2ae94fbb0df723cde55400399191b42a7402967f7340e2363dc"
+    },
+    {
+      "path": "patches/checkouts/vendor__samsung__a30.patch",
+      "bytes": 328,
+      "sha256": "a4028d3d07bf852f16f1fbac65d50ea7085e52010c8e3ad2bf7f550125e78179"
+    },
+    {
+      "path": "patches/index.json",
+      "bytes": 3784,
+      "sha256": "ed1cfad24d1b71411697393f3a83055063a11a40f02922acf628f914d5114d1d"
+    },
+    {
+      "path": "README.md",
+      "bytes": 3703,
+      "sha256": "68e2295dcd00f7f6b31309979f73414c288010d480461c7902ed9a7996ecc2f7"
+    },
+    {
+      "path": "runtime/configuration/system/etc/borealis-connectivity-diagnostics.sh",
+      "bytes": 2011,
+      "sha256": "d814888be0a0f30daa2927853a4d98343d7dc6585a83a5df840ffa991f2ef86e"
+    },
+    {
+      "path": "runtime/configuration/system/etc/init/borealis-connectivity-diagnostics.rc",
+      "bytes": 975,
+      "sha256": "1384efd4d3a5c5e575d095318fa1bb8aa194021431eda343a07b348f9ed30352"
+    },
+    {
+      "path": "runtime/configuration/system/etc/init/borealis-lights.rc",
+      "bytes": 188,
+      "sha256": "c9ca027fd71761c5292cffa92b5278f50653fb40ea274a1ddff5b4da4fad72c6"
+    },
+    {
+      "path": "runtime/configuration/system/etc/init/hw/init.rc",
+      "bytes": 57781,
+      "sha256": "e83d3f226f9410bf9785ad1e4464342ea2298934c779e50b718b7fb5a5622afe"
+    },
+    {
+      "path": "runtime/configuration/vendor/etc/init/hw/init.exynos7904.rc",
+      "bytes": 27319,
+      "sha256": "43280d52133983cf7edc3000528f49a6bf09a6bcdbe3b35cf04de8da6a338b4e"
+    },
+    {
+      "path": "runtime/configuration/vendor/etc/vintf/manifest/borealis-lights.xml",
+      "bytes": 184,
+      "sha256": "3647b4670670df855abb337d0cb84ece3aa7016e6c704bfd85ed8d42e9d91e8e"
+    },
+    {
+      "path": "runtime/README.md",
+      "bytes": 1123,
+      "sha256": "70e20accce4b57824e1ecef3e42885b73766c0624ee1d237418bd281b4804b83"
+    },
+    {
+      "path": "runtime/recipes/a30-build-powerctl-repair.py",
+      "bytes": 2240,
+      "sha256": "ea8830feaec237527431bf4fc8c3aa87077e11d4ff0a8e56bc938ef704c85c6e"
+    },
+    {
+      "path": "runtime/recipes/a30-light-service.cpp",
+      "bytes": 2734,
+      "sha256": "1ff0aeacb60b87eefb416e81bd47d40f3331247cf95237c101a224b8b88e5a5b"
+    },
+    {
+      "path": "runtime/recipes/a30-mali-atom-adapter64.S",
+      "bytes": 1829,
+      "sha256": "4f7f405c52efc342669e5d4693fb8856df459cf54d31dafbe0984525e4e97e26"
+    },
+    {
+      "path": "runtime/recipes/apply-a30-connectivity-repairs.py",
+      "bytes": 9384,
+      "sha256": "0f65288b793cc23747a65c4dbd5f5d304b4b514298005cd51f6f1755cc797804"
+    },
+    {
+      "path": "runtime/recipes/apply-a30-mali-atom-adapter64.py",
+      "bytes": 4712,
+      "sha256": "91f2eb382f911275f722ecb36fb0102723c49b0c214996127d59976a82fb9181"
+    },
+    {
+      "path": "runtime/recipes/apply-a30-storage-propagation.py",
+      "bytes": 4918,
+      "sha256": "a8e9217c40804fe17d8e306534c92564d87a3486ddbee092af422e1323470518"
+    },
+    {
+      "path": "runtime/recipes/build-a30-lights-helper.py",
+      "bytes": 3113,
+      "sha256": "5ff75e4d24a70d508ad8698dd0fe220da102d580a92724a624d4399ee43f6acc"
+    },
+    {
+      "path": "runtime/recipes/build-a30-mali-atom-adapter64.py",
+      "bytes": 9590,
+      "sha256": "71567f1d459b81f7850522698f215440d8f2a3ce6a28e9aa34aaa08cd0de4dcc"
+    },
+    {
+      "path": "runtime/recipes/finalize-a30-connectivity-runtime.py",
+      "bytes": 4093,
+      "sha256": "8e10612783e62e5d359580be5f7f4657347360a9950386c801f65ca0ebf81f56"
+    },
+    {
+      "path": "runtime/recipes/fix-a30-apex-resident-lifecycle.py",
+      "bytes": 5377,
+      "sha256": "bfdf412301506557451ad7ac06df1ac9878384dc746e533c30f9b54dd9aed3cc"
+    },
+    {
+      "path": "runtime/recipes/install-a30-lights-hal.py",
+      "bytes": 3486,
+      "sha256": "32bc2fba7c236e1e17f89dfb2107d5302588bc3e7b2f19e0c07687aec68f4346"
+    },
+    {
+      "path": "runtime/recipes/prove-a30-mali-atom-layout.py",
+      "bytes": 4032,
+      "sha256": "07d8dff7f51f468bfd1cef8a3e70aca9260dcf7094030685f4a733c60dcf7e10"
+    },
+    {
+      "path": "runtime/recipes/test-a30-powerctl-prologue.py",
+      "bytes": 1511,
+      "sha256": "cff62e504a4a52060ffffe77d84693370d3b734972105ad659093c80d8186848"
+    },
+    {
+      "path": "tools/apply-source-snapshot.py",
+      "bytes": 1937,
+      "sha256": "babee155c093aac7d1073ba1d816a4950082029903797d63db7abff9fcc8a914"
+    }
+  ]
+}

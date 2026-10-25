@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<manifest>
+  <remote name="borealis-github" fetch="https://github.com/" />
+  <project path="device/samsung/a30" name="Roynas-Android-Playground/device_samsung_a30" remote="borealis-github" revision="437bc6a96533ff686db2f978c91a22c804d87cf5" clone-depth="1" />
+  <project path="device/samsung/exynos7885-common" name="Roynas-Android-Playground/device_samsung_exynos7885-common" remote="borealis-github" revision="59f063fcfbe14274069bcd4c3546a86581cad4bf" clone-depth="1" />
+  <project path="vendor/samsung/a30" name="Roynas-Android-Playground/vendor_samsung_a30" remote="borealis-github" revision="c65f50b6a910c4d0ee640ae533b4c8fe4148b4c9" clone-depth="1" />
+  <project path="vendor/samsung/exynos7885-common" name="Roynas-Android-Playground/vendor_samsung_exynos7885-common" remote="borealis-github" revision="5243f55efa396043ebb6106137c5a8a42b6448c8" clone-depth="1" />
+  <project path="hardware/samsung_slsi/libbt" name="LineageOS/android_hardware_samsung_slsi_libbt" remote="borealis-github" revision="372d43a231237a8134b2cc4ec6659089e22f4f59" clone-depth="1" />
+  <project path="hardware/samsung_slsi/scsc_wifibt/wifi_hal" name="LineageOS/android_hardware_samsung_slsi_scsc_wifibt_wifi_hal" remote="borealis-github" revision="033d40050c5e23120a5dd0612270cb137a16b300" clone-depth="1" />
+  <project path="hardware/samsung_slsi/scsc_wifibt/wpa_supplicant_lib" name="LineageOS/android_hardware_samsung_slsi_scsc_wifibt_wpa_supplicant_lib" remote="borealis-github" revision="cc50f101dff4b4480d810e13bea7bee1754cf01d" clone-depth="1" />
+  <project path="device/samsung_slsi/sepolicy" name="Roynas-Android-Playground/android_device_samsung_slsi_sepolicy" remote="borealis-github" revision="2ad1eaccaf3e4ffbef503c0e08304571b659f242" clone-depth="1" />
+  <project path="hardware/samsung" name="LineageOS/android_hardware_samsung" remote="borealis-github" revision="5d20e3541d147494e074bf710d35b1960a6ed0a2" clone-depth="1" />
+  <project path="hardware/samsung_slsi-linaro/graphics" name="Roynas-Android-Playground/android_hardware_samsung_slsi-linaro_graphics" remote="borealis-github" revision="8ae181bcf8420b2928bedb3c8d7ea01aa45fdb95" clone-depth="1" />
+  <project path="hardware/samsung_slsi-linaro/exynos" name="Roynas-Android-Playground/android_hardware_samsung_slsi-linaro_exynos" remote="borealis-github" revision="513a0330522e02d77bd63d391010db7e3026c0ae" clone-depth="1" />
+  <project path="hardware/samsung_slsi-linaro/config" name="Roynas-Android-Playground/android_hardware_samsung_slsi-linaro_config" remote="borealis-github" revision="b66c996f65131489d6f2f882c786e910012e7a9c" clone-depth="1" />
+  <project path="hardware/samsung_slsi-linaro/openmax" name="Roynas-Android-Playground/android_hardware_samsung_slsi-linaro_openmax" remote="borealis-github" revision="b0535b93b9bafcca618eca5596a33d8f6310bbc2" clone-depth="1" />
+  <project path="hardware/samsung-ext/interfaces" name="Roynas-Android-Playground/hardware_samsung-extra_interfaces" remote="borealis-github" revision="697f9cb769118ee33e76cbb593fcc7479f6bdc37" clone-depth="1" />
+  <project path="packages/apps/PhhIms" name="krazey/ims" remote="borealis-github" revision="a3fec01ebc4f51c39026565c4a451fef454637fa" clone-depth="1" />
+</manifest>
